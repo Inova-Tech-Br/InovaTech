@@ -1,0 +1,32 @@
+
+====== Aviso ======
+
+Cada Um faz o seu .html na pasta que esta com a sua parte.
+
+Tem Duvidas/Dificuldade, manda no WhatsApp.
+Tem Dicas Coloca Aqui Para todo mundo poder usar.
+
+Obs: Se Esqueci de Algo coloca aqui.
+
+
+
+====== Dicas ======
+_______________________________________________________________________________________
+Link:
+Quando colocar um link que manda para outra pagina colocar assim.
+
+  ( ../Video-Aula/ )
+  Na barra de Pesquisa do google vai ficar assim:
+  ( htpps://Inova-Tech.com/Video-Aula )
+  e não assim
+  ( htpps://Inova-Tech.com/Video-Aula/index.com )
+
+  Obs: Desse Jeito vai esconder esse nome "index.html"
+_______________________________________________________________________________________
+
+- Deixar Tudo em Minusculo.
+
+Para Voltar 1 Pasta coloque (./pasta/index.html) para voltar mais é (../menu/pasta/index.html)
+Assim por diante.
+../../../menu/pasta/index.html    A cada .. volta uma pasta.
+_______________________________________________________________________________________

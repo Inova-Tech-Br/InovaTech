@@ -1,0 +1,33 @@
+
+-->  Leia o Chat - Avisos - Duvidas Tambem.  <--
+
+-> Baixe Esse Repositorio GitHub no seu computador e Faça sua Parte. (html e css)
+
+
+Tela Inicial/Home é o index.html que esta na base do Repositorio. (Pablo)
+
+
+Quem ja tiver A barra superior e o Rodapé Pronto Coloca Na pasta Tutorial. ( Header e Footer )
+(Para todos Usar como base)
+
+
+
+O "Styles.css" é um css global que vai ter a paleta de cor do site e tamanhos padrão de fonte entre outros.
+Obs: Esse estilo Todos Pode mexer. Cuidado com Alterações Feitas nesse .css, pois pode mudar outros .css/Paginas
+Duvidas sobre só perguntar.
+Esse Css vai Padronizar o Site.
+
+
+
+Assets > Midia > Inova-Tech. (Vai ter todos Icones que tera no Site)
+Para outras imagens pode criar uma pasta com o nome da pagina e colocar a imagem dentro
+(A pasta deve ser criada dentro de "Midia")
+
+
+
+Os Videos feito para o curso ficara no YouTube "Privado". (Apenas com o Link deixa ele visivel)
+Obs: YouTube sera o Banco de Dados/Armazenamento dos Videos.
+
+
+
+Para Colocar Icones, Abra o Tutorial > icone.html para ver como usar icones.
