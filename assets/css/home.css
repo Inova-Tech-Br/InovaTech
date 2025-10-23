@@ -603,12 +603,13 @@ body {
   border-top: 1px solid #e5e5e5;
   padding-top: 20px;
 }
-/* ====== RESPONSIVIDADE ====== */
+/* ====== RESPONSIVIDADE GERAL ====== */
 
 /* Tablets e telas médias */
 @media (max-width: 900px) {
   .header .interface {
-    flex-direction: column;
+    flex-direction: row; /* mantém itens na mesma linha */
+    justify-content: space-between; /* logo à esquerda, menu à direita */
     align-items: center;
     gap: 10px;
   }
@@ -679,5 +680,79 @@ body {
 
   .tabela-responsiva table {
     font-size: 13px;
+  }
+}
+
+/* ====== MENU HAMBÚRGUER ====== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 22px;
+  cursor: pointer;
+  gap: 5px;
+  margin-left: 16px; /* dá um espacinho do botão */
+}
+
+.menu-toggle .bar {
+  height: 3px;
+  width: 100%;
+  background-color: #363f5e;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+/* ====== MENU HAMBÚRGUER RESPONSIVO ====== */
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .menu-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+  }
+
+  .menu-desktop {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0; /* menu abre do canto direito */
+    width: 100%;
+    background-color: #f0f0f0;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .menu-desktop ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .menu-desktop.active {
+    display: flex;
+  }
+
+  .btn-inscreva-se {
+    display: none;
+  }
+
+  /* Ícone vira um X quando ativo */
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+
+  .menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
   }
 }
