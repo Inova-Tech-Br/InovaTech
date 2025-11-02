@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declaração de Conclusão de curso</title>
+    <link rel="stylesheet" href="/assets/css/certificado.css">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <section class="container">
+            
+    <div class="div_button">
+        <button id="btnBaixar" class="button">
+            <img src="/assets/midia/inova-tech/baixar_pdf.svg" alt="baixar PDF" class="svg_img">
+            <span class="span_baixar">Baixar PDF</span>
+        </button>
+    </div>
+    <div id="areaCertificado" class="content">
+        <div>
+            <img src="/assets/midia/inova-tech/img_declaracao.svg" alt="icone declaração">
+        </div>
+        <h1 class="h1">Declaração de Conclusão</h1>
+        <span class="span_content">Este certificado é concedido a</span>
+        <div class="name_student">
+            <h2 id="nomeAluno" class="h2_name">[Nome do Aluno]</h2>
+        </div>
+        <hr>
+        <span class="span_content">Por ter concluído com êxito o curso de</span>
+        <h2 class="h2">Introdução à Informática e Ferramentas
+        Google</h2>
+        <span class="span_content">
+            Demonstrando conhecimento e habilidades em conceitos fundamentais de informática,
+            navegação na internet, e domínio das principais ferramentas do Google Workspace.
+        </span>
+        <hr>
+        <div>
+            <span id="dataConclusao" class="span_date">[Data de Conclusão]</span>
+        </div>
+    </div>
+        <a href="/index.html">
+        <button class="button_voltar">
+                <span class="span_voltar">Voltar para home</span>
+        </button>
+        </a>
+    </section>
+
+    <script>
+        // Pega os dados da URL
+        const params = new URLSearchParams(window.location.search);
+        const nome = params.get("nome");
+        const data = params.get("data");
+
+        // Insere os dados na página
+        document.getElementById("nomeAluno").textContent = nome;
+        document.getElementById("dataConclusao").textContent = data;
+    </script>
+
+    <!-- Biblioteca para gerar PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script>
+        // Botão para baixar PDF
+        const btn = document.getElementById("btnBaixar");
+        btn.addEventListener("click", () => {
+            const certificado = document.getElementById("areaCertificado");
+            const opcoes = {
+                margin: 0.3,
+                filename: `Declaracao_${nome || 'Aluno'}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opcoes).from(certificado).save();
+        });
+    </script>
+</body>
+</html>

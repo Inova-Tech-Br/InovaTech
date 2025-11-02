@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emitir Declaração de Conclusão de Curso</title>
+    <link rel="stylesheet" href="/assets/css/emitir_certificado.css">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <form class="form" id="form">
+            <img src="/assets/midia/inova-tech/icone_pag_emitirdeclaracao.svg" alt="icone" class="logo">
+
+            <h1 class="h1">Parabéns!</h1>
+            <span class="subtitle">Você completou o curso com sucesso</span>
+            <br>
+            
+            <div class="box_input">
+                <label class="span">Nome completo do aluno:</label >
+                <input id="name" type="text" placeholder="Digite seu nome completo" class="input" required>
+            </div>
+            
+            <div class="box_input">
+                <label class="span">Data:</label >
+                <input id="data" type="text" placeholder="Digite a data atual:" class="input" required>
+            </div> 
+
+            <div class="box_confirm">
+                <label class="span2">
+                <input type="checkbox">
+                Confirmo que completei todas as atividades e módulos do curso e estou apto(a) a receber o certificado de conclusão.
+                </label>
+            </div>
+
+            <button type="submit" class="button_emitir"> <img src="/assets/midia/inova-tech/baixar_declaracao.svg" alt="baixar declaração" class="img_baixardecla">Emitir declaração</button>
+            
+            <div class="text">
+                <span>O certificado será gerado em formato PDF e enviado para download</span>
+            </div>
+        </form>
+
+        <script>
+        const form = document.getElementById('form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nome = encodeURIComponent(document.getElementById('name').value);
+            const data = encodeURIComponent(document.getElementById('data').value);
+
+            // redireciona para a página do certificado com os dados na URL
+            window.location.href =`../certificado/declaracao.html?nome=${nome}&data=${data}`;
+        });
+</script>
+</body>
+</html>
