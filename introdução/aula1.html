@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introdução à Informática e Ferramentas Google</title>
+  <link rel="stylesheet" href="../assets/css/introducao.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+  const aulasConcluidas = 1;
+  const totalAulas = 5;
+  const porcentagem = (aulasConcluidas / totalAulas) * 100;
+
+  const progress = document.querySelector(".progress");
+  const label = document.querySelector(".progress-label");
+
+  progress.style.width = `${porcentagem}%`;
+  label.textContent = `${aulasConcluidas} de ${totalAulas} aulas concluídas`;
+</script>
+
+</head>
+
+<body>
+
+  <header>
+    <h1>Introdução à Informática e Ferramentas Google</h1>
+    <p>Aprenda os conceitos fundamentais da informática de forma prática e didática</p>
+  </header>
+
+  <main>
+    <section class="conteudo">
+      <div class="tag">
+        <p class="aula-tag">Aula 1</p>
+        <i class="fa-regular fa-clock"></i>
+        <p>1 Hora</p>
+        <i class="fa-solid fa-user-group"></i>
+        <p>Iniciante</p>
+      </div>
+      <div class="title">
+      <h2>Conceitos Fundamentais de Informática</h2>
+      <p class="intro">Nesta primeira aula, você aprenderá os conceitos básicos que formam a base da informática
+        moderna.</p>
+      </div>
+      <div class="card">
+        <div class="heading1">
+          <i class="fa-solid fa-book-open"></i>
+          <h3>Introdução</h3>
+        </div>
+        <p>
+          A Informática é uma das áreas mais importantes da atualidade, responsável por transformar a forma como
+          vivemos, trabalhamos e nos comunicamos. Ela estuda os processos de coleta, tratamento, armazenamento e
+          transmissão de informações por meio de computadores e outros dispositivos tecnológicos. Com o avanço constante
+          da tecnologia, compreender seus conceitos fundamentais se tornou indispensável para qualquer pessoa que deseja
+          se adaptar ao mundo digital e aproveitar os benefícios que ele oferece.
+          Entre os principais pilares da informática estão o hardware, responsável pelas partes físicas de um
+          computador, e o software, que engloba os programas e sistemas que tornam possível a execução de tarefas. Além
+          disso, o sistema operacional atua como intermediário entre o usuário e a máquina, garantindo que os recursos
+          sejam utilizados de maneira eficiente.
+        </p>
+        <p>
+          Outro aspecto essencial é o uso das redes de computadores, que possibilitam a comunicação e o compartilhamento
+          de informações entre diferentes dispositivos, tornando a internet uma das maiores invenções da era moderna.
+          Também é fundamental compreender os princípios da segurança da informação, que visam proteger dados e sistemas
+          contra acessos indevidos, perdas e ataques cibernéticos.
+          Aprender os conceitos básicos de informática permite desenvolver habilidades práticas, como o uso de editores
+          de texto, planilhas eletrônicas, apresentações, navegadores e ferramentas de colaboração online. Além disso,
+          promove uma visão crítica sobre o papel da tecnologia na sociedade, incentivando o uso ético, responsável e
+          consciente dos recursos digitais.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Conceitos Principais</h2>
+        <p class="subtitulo">Os pilares fundamentais da informática que você precisa conhecer</p>
+
+        <div class="conceitos">
+          <div class="conceito">
+            <i class="fa-solid fa-desktop"></i>
+            <div class="texto">
+              <h3>Hardware</h3>
+              <p>Componentes físicos do computador: processador, memória, disco rígido.</p>
+            </div>
+          </div>
+
+          <div class="conceito">
+            <i class="fa-solid fa-globe"></i>
+            <div class="texto">
+              <h3>Internet</h3>
+              <p>Rede mundial que conecta computadores e dispositivos.</p>
+            </div>
+          </div>
+
+          <div class="conceito">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <div class="texto">
+              <h3>Software</h3>
+              <p>Programas e aplicações que fazem o computador funcionar.</p>
+            </div>
+          </div>
+
+          <div class="conceito">
+            <i class="fa-solid fa-book-open"></i>
+            <div class="texto">
+              <h3>Dados</h3>
+              <p>Informações processadas e armazenadas digitalmente.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Exemplos Práticos</h2>
+        <div class="texto"><h3>💻 No Trabalho</h3></div>
+        <p>Usar o google Docs para criar documentos, Gmail para comunicação, e Google Drive para armazenar arquivos na
+          nuvem.</p>
+          <br>
+        <div class="texto"><h3>🏠 Em Casa</h3></div>
+        <p>Usar o google Docs para criar documentos, Gmail para comunicação, e Google Drive para armazenar arquivos na
+          nuvem.</p>
+          <br>
+        <div class="texto"><h3>📚 Nos Estudos</h3></div>
+        <p>Pesquisar informações no Google, criar apresentações no Google Slides, e colaborar em projetos
+          usando ferramentas online.</p>
+      </div>
+    </section>
+
+    <aside>
+    <div class="sidebar-box">
+      <div class="progress-container">
+        <h3>Progresso do Curso</h3>
+        <div class="aula">
+        <h4 >Aula 1</h4><b>Em andamento</b>
+        </div>
+       <div class="progress-bar">
+        <div class="progress" style="width: 20%;"></div>
+       </div>
+      <span class="progress-label">0 de 5 aulas concluídas</span>
+</div>
+      </div>
+
+      <div class="sidebar-box">
+        <h3>Próximos Tópicos</h3>
+        <div class="topicos">
+        <h4>Aula 2</h4>
+        <p>Introdução às ferramentas do Google.</p>
+
+        <h4>Aula 3</h4>
+        <p>Documentos e Planilhas.</p>
+
+        <h4>Aula 4</h4>
+        <p>Apresentações e Comunicação.</p>
+
+        <h4>Aula 5</h4>
+        <p>Projeto Final e Encerramento.</p>
+        </div>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Recursos Adicionais</h4>
+        <a href="../assets/midia/pdf/Aula1.pdf" target="_blank">📄 Material de apoio (PDF)
+          
+        </a>
+      </div>
+
+      <a class="botao-video" href="#"><i class="fa-solid fa-play"></i>  Assistir Videoaula</a>
+    </aside>
+  </main>
+
+  <footer>
+    © 2025 InovaTech. Todos os direitos reservados.
+  </footer>
+
+</body>
+
+</html>

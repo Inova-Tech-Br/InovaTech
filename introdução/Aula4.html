@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução à Informática e Ferramentas Google</title>
+    <link rel="stylesheet" href="../assets/css/introducao.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        const aulasConcluidas = 1;
+        const totalAulas = 5;
+        const porcentagem = (aulasConcluidas / totalAulas) * 100;
+
+        const progress = document.querySelector(".progress");
+        const label = document.querySelector(".progress-label");
+
+        progress.style.width = `${porcentagem}%`;
+        label.textContent = `${aulasConcluidas} de ${totalAulas} aulas concluídas`;
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Introdução à Informática e Ferramentas Google</h1>
+        <p>Aprenda os conceitos fundamentais da informática de forma prática e didática</p>
+    </header>
+
+    <main>
+        <section class="conteudo">
+            <div class="tag">
+                <p class="aula-tag">Aula 4</p>
+                <i class="fa-regular fa-clock"></i>
+                <p>1 Hora</p>
+                <i class="fa-solid fa-user-group"></i>
+                <p>Iniciante</p>
+            </div>
+            <div class="title">
+                <h2>Apresentações, Comunicação e Produtividade</h2>
+                <p class="intro">Primeiros passos no Google Docs e Planilhas: criação, formatação e colaboração.</p>
+            </div>
+            <div class="card">
+                <div class="heading1">
+                    <i class="fa-solid fa-book-open"></i>
+                    <h3>Introdução</h3>
+                </div>
+                <p>
+                    Nesta aula, vamos conhecer e praticar o uso de ferramentas do Google voltadas à comunicação,
+                    organização e produtividade. O objetivo é aprender a criar apresentações visuais simples, se
+                    comunicar de forma eficiente por e-mail e gerenciar melhor o tempo e os compromissos com as
+                    ferramentas integradas do Google.
+                </p>
+                <p>
+                    Você aprenderá a utilizar o Google Apresentações para montar slides com textos, imagens e layouts
+                    atrativos; o Gmail, com foco em boas práticas de escrita e organização de mensagens; o Google
+                    Agenda, para marcar reuniões e compromissos; e o Google Meet, para realizar videoconferências de
+                    maneira fácil e rápida.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>Conceitos Principais</h2>
+                <p class="subtitulo">Conceitos dos serviços disponíveis do Google.</p>
+
+                <div class="conceitos">
+                    <div class="conceito">
+                        <i class="fa-solid fa-film"></i>
+                        <div class="texto">
+                            <h3>Google Apresentações</h3>
+                            <p>Ferramenta online para criar apresentações de slides para uso pessoal, profissional ou
+                                acadêmico.</p>
+                        </div>
+                    </div>
+
+                    <div class="conceito">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div class="texto">
+                            <h3>Gmail</h3>
+                            <p>Serviço de e-mail gratuito do Google, conecta-se com outras ferramentas como Googel
+                                Drive, Agenda e Meet.</p>
+                        </div>
+                    </div>
+
+                    <div class="conceito">
+                        <i class="fa-solid fa-calendar"></i>
+                        <div class="texto">
+                            <h3>Google Agenda</h3>
+                            <p>Calendario digital para organizar compromissos e lembretes.</p>
+                        </div>
+                    </div>
+
+                    <div class="conceito">
+                        <i class="fa-solid fa-video"></i>
+                        <div class="texto">
+                            <h3>Google Meet</h3>
+                            <p>Ferramenta para videoconferências online.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Exemplos Práticos</h2>
+                <div class="texto">
+                    <h3>💻 No Trabalho</h3>
+                </div>
+                <p>Usar o Google Apresentações para mostrar projetos em reuniões, enviar e-mails profissionais pelo
+                    Gmail, marcar compromissos na Agenda e fazer videoconferências pelo Meet.</p>
+                <br>
+                <div class="texto">
+                    <h3>🏠 Em Casa</h3>
+                </div>
+                <p>Criar slides com fotos ou planos pessoais, organizar contas e tarefas na Agenda, e usar o Meet para
+                    conversar com familiares.</p>
+                <br>
+                <div class="texto">
+                    <h3>📚 Nos Estudos</h3>
+                </div>
+                <p>Montar apresentações para trabalhos escolares, enviar atividades por e-mail, marcar prazos no Google
+                    Agenda e participar de aulas online pelo Meet.</p>
+            </div>
+        </section>
+
+        <aside>
+            <div class="sidebar-box">
+                <div class="progress-container">
+                    <h3>Progresso do Curso</h3>
+                    <div class="aula">
+                        <h4>Aula 4</h4><b>Em andamento</b>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%;"></div>
+                    </div>
+                    <span class="progress-label">3 de 5 aulas concluídas</span>
+                </div>
+            </div>
+
+            <div class="sidebar-box">
+                <h3>Próximos Tópicos</h3>
+                <div class="topicos">
+
+                    <h4>Aula 5</h4>
+                    <p>Projeto Final e Encerramento.</p>
+                </div>
+            </div>
+
+            <div class="sidebar-box">
+                <h4>Recursos Adicionais</h4>
+                <a href="../assets/midia/pdf/Aula4.pdf" target="_blank">📄 Material de
+                    apoio (PDF)
+
+                </a>
+            </div>
+
+            <a class="botao-video" href="#"><i class="fa-solid fa-play"></i> Assistir Videoaula</a>
+        </aside>
+    </main>
+
+    <footer>
+        © 2025 InovaTech. Todos os direitos reservados.
+    </footer>
+
+</body>
+
+</html>

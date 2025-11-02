@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução à Informática e Ferramentas Google</title>
+    <link rel="stylesheet" href="../assets/css/introducao.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        const aulasConcluidas = 1;
+        const totalAulas = 5;
+        const porcentagem = (aulasConcluidas / totalAulas) * 100;
+
+        const progress = document.querySelector(".progress");
+        const label = document.querySelector(".progress-label");
+
+        progress.style.width = `${porcentagem}%`;
+        label.textContent = `${aulasConcluidas} de ${totalAulas} aulas concluídas`;
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Introdução à Informática e Ferramentas Google</h1>
+        <p>Aprenda os conceitos fundamentais da informática de forma prática e didática</p>
+    </header>
+
+    <main>
+        <section class="conteudo">
+            <div class="tag">
+                <p class="aula-tag">Aula 5</p>
+                <i class="fa-regular fa-clock"></i>
+                <p>30 Minutos</p>
+                <i class="fa-solid fa-user-group"></i>
+                <p>Iniciante</p>
+            </div>
+            <div class="title">
+                <h2>Projeto Final e Encerramento</h2>
+                <p class="intro">Primeiros passos no Google Docs e Planilhas: criação, formatação e colaboração.</p>
+            </div>
+            <div class="card">
+                <div class="heading1">
+                    <i class="fa-solid fa-book-open"></i>
+                    <h3>Introdução</h3>
+                </div>
+                <p>
+                    Nesta aula, vamos conhecer e praticar o uso de ferramentas do Google voltadas à comunicação,
+                    Nesta última aula, os participantes irão colocar em prática todos os conhecimentos adquiridos ao
+                    longo do curso, desenvolvendo um mini-projeto em grupo com o uso integrado das ferramentas do
+                    Google. O objetivo é reforçar a aprendizagem por meio da prática colaborativa e da organização
+                    digital.
+                </p>
+                <p>
+                    Durante a atividade, os grupos deverão organizar uma pasta no Google Drive e produzir três elementos
+                    principais:
+
+                   <ul>
+                    <li>Um documento no Google Docs, servindo como relatório do projeto.</li>
+
+                    <li>Uma planilha no Google Planilhas, com uma tabela simples de informações.</li>
+
+                    <li>Uma apresentação no Google Apresentações, com 3 a 5 slides que resumam o trabalho.</li>
+                    </ul> 
+                    <br>
+                    Essa atividade permitirá revisar os recursos estudados, exercitar o trabalho em equipe e concluir o
+                    curso de forma prática e produtiva.
+                   
+                </p>
+            </div>
+        </section>
+
+        <aside>
+            <div class="sidebar-box">
+                <div class="progress-container">
+                    <h3>Progresso do Curso</h3>
+                    <div class="aula">
+                        <h4>Aula 5</h4><b>Em andamento</b>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 100%;"></div>
+                    </div>
+                    <span class="progress-label">4 de 5 aulas concluídas</span>
+                </div>
+            </div>
+
+            <a class="botao-video" href="#"><i class="fa-solid fa-play"></i> Assistir Videoaula</a>
+        </aside>
+    </main>
+
+    <footer>
+        © 2025 InovaTech. Todos os direitos reservados.
+    </footer>
+
+</body>
+
+</html>

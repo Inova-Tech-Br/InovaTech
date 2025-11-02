@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução à Informática e Ferramentas Google</title>
+    <link rel="stylesheet" href="../assets/css/introducao.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        const aulasConcluidas = 1;
+        const totalAulas = 5;
+        const porcentagem = (aulasConcluidas / totalAulas) * 100;
+
+        const progress = document.querySelector(".progress");
+        const label = document.querySelector(".progress-label");
+
+        progress.style.width = `${porcentagem}%`;
+        label.textContent = `${aulasConcluidas} de ${totalAulas} aulas concluídas`;
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Introdução à Informática e Ferramentas Google</h1>
+        <p>Aprenda os conceitos fundamentais da informática de forma prática e didática</p>
+    </header>
+
+    <main>
+        <section class="conteudo">
+            <div class="tag">
+                <p class="aula-tag">Aula 3</p>
+                <i class="fa-regular fa-clock"></i>
+                <p>1 Hora 15 Minutos</p>
+                <i class="fa-solid fa-user-group"></i>
+                <p>Iniciante</p>
+            </div>
+            <div class="title">
+                <h2> Documentos e Planilhas</h2>
+                <p class="intro">Primeiros passos no Google Docs e Planilhas: criação, formatação e colaboração.</p>
+            </div>
+            <div class="card">
+                <div class="heading1">
+                    <i class="fa-solid fa-book-open"></i>
+                    <h3>Introdução</h3>
+                </div>
+                <p>
+                    Nesta aula, vamos explorar duas das ferramentas mais utilizadas do Google: Google Docs e Google
+                    Planilhas. O objetivo é compreender como criar, editar e colaborar em textos e planilhas de forma
+                    online e integrada, desenvolvendo habilidades que facilitam a produção de conteúdo e a organização
+                    de informações.
+                </p>
+                <p>
+                    Você aprenderá a criar documentos de texto no Google Docs, aplicar formatações básicas, revisar e
+                    trabalhar de maneira colaborativa com outras pessoas em tempo real. Em seguida, conhecerá o Google
+                    Planilhas, aprendendo a inserir dados, aplicar formatações simples e utilizar fórmulas básicas para
+                    cálculos automáticos.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>Conceitos Principais</h2>
+                <p class="subtitulo">Ferramentas do Google que você precisa conhecer.</p>
+
+                <div class="conceitos">
+                    <div class="conceito">
+                        <i class="fa-solid fa-file"></i>
+                        <div class="texto">
+                            <h3>Google Docs</h3>
+                            <p>Ferramenta do google para criação e edição textos.</p>
+                        </div>
+                    </div>
+
+                    <div class="conceito">
+                        <i class="fa-solid fa-chart-simple"></i>
+                        <div class="texto">
+                            <h3>Google Planilhas</h3>
+                            <p>Aplicativo para criação de planilhas e controles de dados.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Exemplos Práticos</h2>
+                <div class="texto">
+                    <h3>💻 No Trabalho</h3>
+                </div>
+                <p>Elaborar relátorios, atas de reunião e propostas em equipe. Controle de despesas,prazos de projetos e
+                    indicadores. </p>
+                <br>
+                <div class="texto">
+                    <h3>🏠 Em Casa</h3>
+                </div>
+                <p>Criar listas de tarefas, receitas ou planejamentos pessoais. Organizar orçamento doméstico, lista de
+                    contas ou controle de contas.</p>
+                <br>
+                <div class="texto">
+                    <h3>📚 Nos Estudos</h3>
+                </div>
+                <p>Escrever trabalhos, redações e fazer revisões colaborativas. Registrar notas, planejar estudos e
+                    acompanhar prazos de entrega.</p>
+            </div>
+        </section>
+
+        <aside>
+            <div class="sidebar-box">
+                <div class="progress-container">
+                    <h3>Progresso do Curso</h3>
+                    <div class="aula">
+                        <h4>Aula 3</h4><b>Em andamento</b>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 60%;"></div>
+                    </div>
+                    <span class="progress-label">2 de 5 aulas concluídas</span>
+                </div>
+            </div>
+
+            <div class="sidebar-box">
+                <h3>Próximos Tópicos</h3>
+                <div class="topicos">
+
+                    <h4>Aula 4</h4>
+                    <p>Apresentações e Comunicação.</p>
+
+                    <h4>Aula 5</h4>
+                    <p>Projeto Final e Encerramento.</p>
+                </div>
+            </div>
+
+            <div class="sidebar-box">
+                <h4>Recursos Adicionais</h4>
+                <a href="../assets/midia/pdf/Aula3.pdf" target="_blank">📄 Material de
+                    apoio (PDF)
+
+                </a>
+            </div>
+
+            <a class="botao-video" href="#"><i class="fa-solid fa-play"></i> Assistir Videoaula</a>
+        </aside>
+    </main>
+
+    <footer>
+        © 2025 InovaTech. Todos os direitos reservados.
+    </footer>
+
+</body>
+
+</html>

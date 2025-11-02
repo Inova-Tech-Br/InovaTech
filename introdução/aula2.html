@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução à Informática e Ferramentas Google</title>
+    <link rel="stylesheet" href="../assets/css/introducao.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        const aulasConcluidas = 1;
+        const totalAulas = 5;
+        const porcentagem = (aulasConcluidas / totalAulas) * 100;
+
+        const progress = document.querySelector(".progress");
+        const label = document.querySelector(".progress-label");
+
+        progress.style.width = `${porcentagem}%`;
+        label.textContent = `${aulasConcluidas} de ${totalAulas} aulas concluídas`;
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Introdução à Informática e Ferramentas Google</h1>
+        <p>Aprenda os conceitos fundamentais da informática de forma prática e didática</p>
+    </header>
+
+    <main>
+        <section class="conteudo">
+            <div class="tag">
+                <p class="aula-tag">Aula 2</p>
+                <i class="fa-regular fa-clock"></i>
+                <p>1 Hora 15 Minutos</p>
+                <i class="fa-solid fa-user-group"></i>
+                <p>Iniciante</p>
+            </div>
+            <div class="title">
+                <h2>Introdução às ferramentas do Google</h2>
+                <p class="intro">Explorando as ferramentas essenciais do Google para organização e colaboração.</p>
+            </div>
+            <div class="card">
+                <div class="heading1">
+                    <i class="fa-solid fa-book-open"></i>
+                    <h3>Introdução</h3>
+                </div>
+                <p>
+                    Nesta aula, daremos os primeiros passos no uso das principais ferramentas oferecidas pelo Google,
+                    com foco em sua aplicação prática no dia a dia pessoal, acadêmico e profissional. O objetivo é
+                    compreender como criar e organizar uma conta Google, além de explorar o Google Drive — uma poderosa
+                    plataforma de armazenamento em nuvem que permite salvar, acessar e compartilhar arquivos de forma
+                    simples e segura.
+                </p>
+                <p>
+                    Durante a aula, aprenderemos a estruturar pastas, enviar documentos e gerenciar permissões de
+                    compartilhamento, facilitando o trabalho colaborativo e o acesso às informações em qualquer
+                    dispositivo conectado à internet.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>Conceitos Principais</h2>
+                <p class="subtitulo">Os conceitos principais das ferramentas do Google</p>
+
+                <div class="conceitos">
+                    <div class="conceito">
+                        <i class="fa-solid fa-compass"></i>
+                        <div class="texto">
+                            <h3>Conta Google</h3>
+                            <p>Um perfil gratuito que dá acesso a todos os serviços do Google (Gmail, Drive, Docs, YouTube, etc.).</p>
+                        </div>
+                    </div>
+
+                    <div class="conceito">
+                       <i class="fa-solid fa-cloud"></i>
+                        <div class="texto">
+                            <h3>Google Drive</h3>
+                            <p>serviço de armazenamento em nuvem do Google que permite guardar arquivos, fotos, vídeos e documentos.</p>
+                        </div>
+                    </div>
+
+                    <div class="conceito">
+                        <i class="fa-solid fa-folder"></i>
+                        <div class="texto">
+                            <h3>Organização de Arquivos</h3>
+                            <p>Boas práticas: nomear arquivos de forma clara, criar pastas temáticas e manter uma estrutura lógica.</p>
+                        </div>
+                    </div>
+
+                    <div class="conceito">
+                        <i class="fa-solid fa-handshake"></i>
+                        <div class="texto">
+                            <h3>Compartilhamento e Colaboração</h3>
+                            <p>Colaborção de várias pessoas para editar o mesmo documento e envio de links o convites direto por e-mail</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Exemplos Práticos</h2>
+                <div class="texto">
+                    <h3>💻 No Trabalho</h3>
+                </div>
+                <p>Guardar e organizar relátorios, planilhas e projetos, compartilhar arquivos com colegas e trabalhar juntos online.</p>
+                <br>
+                <div class="texto">
+                    <h3>🏠 Em Casa</h3>
+                </div>
+                <p>Guardar documentos pessoais, contas e recibos. Compartilhar fotos e vídeos com família, fazer planilhas simples para controle de gastos.</p>
+                <br>
+                <div class="texto">
+                    <h3>📚 Nos Estudos</h3>
+                </div>
+                <p>Salvar materiais de aula e trabalhos. Fazer trabalhos em grupo de forma colaborativa. Acessar tudo pelo celular ou computador, sem risco de perder arquivos.</p>
+            </div>
+        </section>
+
+        <aside>
+            <div class="sidebar-box">
+                <div class="progress-container">
+                    <h3>Progresso do Curso</h3>
+                    <div class="aula">
+                        <h4>Aula 2</h4><b>Em andamento</b>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 40%;"></div>
+                    </div>
+                    <span class="progress-label">1 de 5 aulas concluídas</span>
+                </div>
+            </div>
+
+            <div class="sidebar-box">
+                <h3>Próximos Tópicos</h3>
+                <div class="topicos">
+
+                    <h4>Aula 3</h4>
+                    <p>Documentos e Planilhas.</p>
+
+                    <h4>Aula 4</h4>
+                    <p>Apresentações e Comunicação.</p>
+
+                    <h4>Aula 5</h4>
+                    <p>Projeto Final e Encerramento.</p>
+                </div>
+            </div>
+
+            <div class="sidebar-box">
+                <h4>Recursos Adicionais</h4>
+                <a href="../assets/midia/pdf/Aula2.pdf" target="_blank">📄 Material de
+                    apoio (PDF)
+
+                </a>
+            </div>
+
+            <a class="botao-video" href="#"><i class="fa-solid fa-play"></i> Assistir Videoaula</a>
+        </aside>
+    </main>
+
+    <footer>
+        © 2025 InovaTech. Todos os direitos reservados.
+    </footer>
+
+</body>
+
+</html>
