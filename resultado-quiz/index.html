@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InovaTech - Quiz de Informática e Ferramentas Google</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8f9ff;
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+    header {
+      background: #2b2f3a;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      font-weight: 600;
+      font-size: 18px;
+    }
+    main {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    p.description {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 25px;
+    }
+    .question {
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      background: #fff;
+    }
+    .question h2 {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+    .option {
+      display: flex;
+      align-items: center;
+      background: #f9f9f9;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .option:hover { background: #f1f1f1; }
+    .option.correct {
+      background: #d6f5d6;
+      border: 1px solid #2ecc71;
+      color: #155724;
+    }
+    .option.incorrect {
+      background: #f8d7da;
+      border: 1px solid #dc3545;
+      color: #721c24;
+    }
+    .option input {
+      margin-right: 8px;
+    }
+    button {
+      display: block;
+      margin: 20px auto 0;
+      padding: 12px 24px;
+      background: linear-gradient(90deg, #5e60ce, #7400b8);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+  <header>InovaTech</header>
+  <main>
+    <h1>Quiz de Informática e Ferramentas Google</h1>
+    <p class="description">Conceitos fundamentais de Informática — Teste seus conhecimentos sobre informática básica e ferramentas do Google</p>
+
+    <div class="question" data-correct="1">
+      <h2>O que é Informática?</h2>
+      <div class="option"><input type="radio" name="q1"> [OPÇÃO A] – O estudo apenas dos componentes físicos do computador.</div>
+      <div class="option" data-correct="true"><input type="radio" name="q1"> [OPÇÃO B] – A ciência que estuda o processamento, armazenamento e transmissão de informações por meio de tecnologias.</div>
+      <div class="option"><input type="radio" name="q1"> [OPÇÃO C] – Um conjunto de programas utilizados apenas em empresas.</div>
+      <div class="option"><input type="radio" name="q1"> [OPÇÃO D] – O uso exclusivo da internet para comunicação.</div>
+    </div>
+
+    <div class="question">
+      <h2>Qual é a diferença entre hardware e software?</h2>
+      <div class="option"><input type="radio" name="q2"> [OPÇÃO A] – Hardware é o sistema operacional, e software são os dispositivos externos.</div>
+      <div class="option" data-correct="true"><input type="radio" name="q2"> [OPÇÃO B] – Hardware são os componentes físicos e software são os programas e sistemas do computador.</div>
+      <div class="option"><input type="radio" name="q2"> [OPÇÃO C] – Hardware é a parte lógica e software é a parte visual.</div>
+      <div class="option"><input type="radio" name="q2"> [OPÇÃO D] – Ambos significam a mesma coisa.</div>
+    </div>
+
+    <div class="question">
+      <h2>Qual é a principal função do sistema operacional?</h2>
+      <div class="option"><input type="radio" name="q3"> [OPÇÃO A] – Controlar o acesso à internet.</div>
+      <div class="option"><input type="radio" name="q3"> [OPÇÃO B] – Armazenar arquivos permanentemente.</div>
+      <div class="option" data-correct="true"><input type="radio" name="q3"> [OPÇÃO C] – Servir de intermediário entre o usuário e o hardware, permitindo o uso do computador.</div>
+      <div class="option"><input type="radio" name="q3"> [OPÇÃO D] – Impedir a instalação de novos programas.</div>
+    </div>
+
+    <div class="question">
+      <h2>O que é uma rede de computadores?</h2>
+      <div class="option"><input type="radio" name="q4"> [OPÇÃO A] – Um conjunto de computadores que funcionam isoladamente.</div>
+      <div class="option" data-correct="true"><input type="radio" name="q4"> [OPÇÃO B] – Um sistema que conecta computadores e dispositivos para compartilhar informações e recursos.</div>
+      <div class="option"><input type="radio" name="q4"> [OPÇÃO C] – Um software que armazena dados na nuvem.</div>
+      <div class="option"><input type="radio" name="q4"> [OPÇÃO D] – Um tipo de vírus digital.</div>
+    </div>
+
+    <div class="question">
+      <h2>Qual das opções abaixo representa uma boa prática de segurança da informação?</h2>
+      <div class="option"><input type="radio" name="q5"> [OPÇÃO A] – Utilizar a mesma senha para todos os sites.</div>
+      <div class="option"><input type="radio" name="q5"> [OPÇÃO B] – Compartilhar dados pessoais em redes públicas.</div>
+      <div class="option" data-correct="true"><input type="radio" name="q5"> [OPÇÃO C] – Fazer backup dos arquivos importantes regularmente.</div>
+      <div class="option"><input type="radio" name="q5"> [OPÇÃO D] – Baixar programas desconhecidos para testar.</div>
+    </div>
+
+    <button id="next-btn">Próxima Aula</button>
+  </main>
+
+  <script>
+    document.querySelectorAll('.question').forEach((question) => {
+      const options = question.querySelectorAll('.option');
+
+      options.forEach(option => {
+        option.addEventListener('click', () => {
+          if (question.classList.contains('answered')) return;
+          question.classList.add('answered');
+
+          const clickedRadio = option.querySelector('input[type="radio"]');
+          if (clickedRadio) clickedRadio.checked = true;
+
+          const isCorrect = option.dataset.correct === "true";
+          if (isCorrect) {
+            option.classList.add('correct');
+          } else {
+            option.classList.add('incorrect');
+          }
+
+          options.forEach(opt => {
+            const radio = opt.querySelector('input[type="radio"]');
+            if (radio) radio.disabled = true;
+          });
+        });
+      });
+    });
+
+    const nextBtn = document.getElementById('next-btn');
+    nextBtn.addEventListener('click', () => {
+      nextBtn.textContent = nextBtn.textContent === 'Próxima Aula' ? 'Encerrar Curso' : 'Próxima Aula';
+    });
+  </script>
+</body>
+</html>
