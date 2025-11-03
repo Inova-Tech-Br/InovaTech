@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Informática - Aula 2</title>
+    <style>
+        /* CSS base replicado do seu código */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f6ff;
+            color: #1e1e2a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 30px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: #1f1f3b;
+        }
+
+        header p {
+            color: #1e1e2a; 
+            font-size: 0.95rem; 
+            margin-top: 5px;
+            margin-bottom: 25px;
+        }
+
+        .quiz-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 500px;
+            padding: 25px;
+            margin-bottom: 20px; 
+        }
+
+        /* Ajustes para o cabeçalho do quiz (contador e barra) */
+        .quiz-header {
+            margin-bottom: 15px;
+        }
+        
+        .question-count {
+            color: #7b61ff;
+            font-weight: bold; 
+            font-size: 0.9rem;
+        }
+
+        .progress-bar {
+            background-color: #e6e6e6;
+            border-radius: 5px;
+            height: 6px;
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 15px; 
+        }
+
+        .progress {
+            background-color: #7b61ff;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        /* Título da Aula */
+        .lesson-title {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 600; 
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #eee;
+            pointer-events: none; 
+            position: relative;
+        }
+        
+        /* Estilos de acerto para a resposta correta */
+        label.correct {
+            background-color: #d4edda; 
+            border-color: #28a745; 
+            color: #155724; 
+            font-weight: bold;
+            display: flex; 
+            align-items: center;
+        }
+        
+        /* Simulação do Checkmark Verde e Rádio Desmarcado/Marcado */
+        input[type="radio"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            margin-right: 10px;
+            flex-shrink: 0;
+            position: relative;
+            top: 2px;
+        }
+
+        .correct-icon {
+            color: #1e8e3e; 
+            font-size: 1.2rem;
+            margin-right: 5px;
+            flex-shrink: 0;
+        }
+        
+        /* Oculta o radio button real na opção correta para usar o ícone */
+        label.correct input[type="radio"] {
+            display: none;
+        }
+
+        /* Estilo do botão de confirmar padrão (desabilitado) */
+        button {
+            width: 100%;
+            background-color: #7b61ff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 0;
+            font-size: 1rem;
+            cursor: default;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        /* Estilo do botão de navegação (ativo) */
+        .btn-navigation {
+            width: 100%;
+            padding: 12px 0;
+            margin-top: 25px;
+            background-color: #7b61ff; 
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-navigation:hover {
+            background-color: #5f48d4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Quiz de Informática e Ferramentas Google</h1>
+        <p>Teste seus conhecimentos sobre Informática básica e ferramentas do Google.</p>
+    </header>
+
+    <main>
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 1 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 24%;"></div> 
+                </div>
+            </div>
+            <div class="lesson-title">Aula 2: Introdução à Conta e Google Drive</div>
+            <h2>O que é uma Conta Google?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q6" disabled> Um aplicativo para armazenar vídeos
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    Uma identidade digital que dá acesso a diversos serviços do Google
+                </label>
+                <label>
+                    <input type="radio" name="q6" disabled> Um programa para editar documentos
+                </label>
+                <label>
+                    <input type="radio" name="q6" disabled> Uma rede social
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 2 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 28%;"></div>
+                </div>
+            </div>
+            <div class="lesson-title">Aula 2: Introdução à Conta e Google Drive</div>
+            <h2>Qual dessas opções NÃO é um serviço disponível em uma Conta Google?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q7" disabled> Gmail
+                </label>
+                <label>
+                    <input type="radio" name="q7" disabled> YouTube
+                </label>
+                <label>
+                    <input type="radio" name="q7" disabled> Google Drive
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    iCloud
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+        
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 3 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 32%;"></div>
+                </div>
+            </div>
+            <div class="lesson-title">Aula 2: Introdução à Conta e Google Drive</div>
+            <h2>Qual é o primeiro passo para criar uma Conta Google?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q8" disabled> Clicar em “Criar conta”
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    Acessar www.google.com.br
+                </label>
+                <label>
+                    <input type="radio" name="q8" disabled> Preencher os dados solicitados
+                </label>
+                <label>
+                    <input type="radio" name="q8" disabled> Concordar com os Termos
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 4 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 36%;"></div>
+                </div>
+            </div>
+            <div class="lesson-title">Aula 2: Introdução à Conta e Google Drive</div>
+            <h2>O que é o Google Drive?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q9" disabled> Um aplicativo de e-mail
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    Um serviço de armazenamento em nuvem
+                </label>
+                <label>
+                    <input type="radio" name="q9" disabled> Um editor de vídeo
+                </label>
+                <label>
+                    <input type="radio" name="q9" disabled> Um navegador de internet
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 5 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 40%;"></div>
+                </div>
+            </div>
+            <div class="lesson-title">Aula 2: Introdução à Conta e Google Drive</div>
+            <h2>Qual botão deve ser usado para criar uma nova pasta ou enviar arquivos no Google Drive?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q10" disabled> “Upload”
+                </label>
+                <label>
+                    <input type="radio" name="q10" disabled> “Compartilhar”
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    “Novo”
+                </label>
+                <label>
+                    <input type="radio" name="q10" disabled> “Salvar”
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+            <a href="aula3.html" class="btn-navigation">Ir para a Aula 3</a>
+        </section>
+
+    </main>
+</body>
+</html>
