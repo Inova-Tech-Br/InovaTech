@@ -133,7 +133,7 @@
             display: none;
         }
 
-        /* Estilo do botão de confirmar */
+        /* Estilo do botão de confirmar padrão (desabilitado) */
         button {
             width: 100%;
             background-color: #7b61ff;
@@ -144,13 +144,35 @@
             font-size: 1rem;
             cursor: default;
             margin-top: 20px;
+            display: none;
+        }
+        
+        /* Estilo do botão de navegação (ativo) */
+        .btn-navigation {
+            width: 100%;
+            padding: 12px 0;
+            margin-top: 25px;
+            background-color: #7b61ff; 
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-navigation:hover {
+            background-color: #5f48d4;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Quiz de Informática e Ferramentas Google</h1>
-        <p>Teste seus conhecimentos sobre o curso completo.</p>
+        <p>Teste seus conhecimentos sobre Informática básica e ferramentas do Google.</p>
     </header>
 
     <main>
@@ -158,7 +180,8 @@
             <div class="quiz-header">
                 <span class="question-count">Pergunta 1 de 5</span>
                 <div class="progress-bar">
-                    <div class="progress" style="width: 24%;"></div> </div>
+                    <div class="progress" style="width: 24%;"></div> 
+                </div>
             </div>
             <div class="lesson-title">Aula 2: Introdução à Conta e Google Drive</div>
             <h2>O que é uma Conta Google?</h2>
@@ -184,7 +207,8 @@
             <div class="quiz-header">
                 <span class="question-count">Pergunta 2 de 5</span>
                 <div class="progress-bar">
-                    <div class="progress" style="width: 28%;"></div> </div>
+                    <div class="progress" style="width: 28%;"></div>
+                </div>
             </div>
             <div class="lesson-title">Aula 2: Introdução à Conta e Google Drive</div>
             <h2>Qual dessas opções NÃO é um serviço disponível em uma Conta Google?</h2>
@@ -210,7 +234,8 @@
             <div class="quiz-header">
                 <span class="question-count">Pergunta 3 de 5</span>
                 <div class="progress-bar">
-                    <div class="progress" style="width: 32%;"></div> </div>
+                    <div class="progress" style="width: 32%;"></div>
+                </div>
             </div>
             <div class="lesson-title">Aula 2: Introdução à Conta e Google Drive</div>
             <h2>Qual é o primeiro passo para criar uma Conta Google?</h2>
@@ -236,7 +261,8 @@
             <div class="quiz-header">
                 <span class="question-count">Pergunta 4 de 5</span>
                 <div class="progress-bar">
-                    <div class="progress" style="width: 36%;"></div> </div>
+                    <div class="progress" style="width: 36%;"></div>
+                </div>
             </div>
             <div class="lesson-title">Aula 2: Introdução à Conta e Google Drive</div>
             <h2>O que é o Google Drive?</h2>
@@ -262,7 +288,8 @@
             <div class="quiz-header">
                 <span class="question-count">Pergunta 5 de 5</span>
                 <div class="progress-bar">
-                    <div class="progress" style="width: 40%;"></div> </div>
+                    <div class="progress" style="width: 40%;"></div>
+                </div>
             </div>
             <div class="lesson-title">Aula 2: Introdução à Conta e Google Drive</div>
             <h2>Qual botão deve ser usado para criar uma nova pasta ou enviar arquivos no Google Drive?</h2>
@@ -282,6 +309,7 @@
                 </label>
             </form>
             <button type="button" disabled>Confirmar</button>
+            <a href="aula3.html" class="btn-navigation">Ir para a Aula 3</a>
         </section>
 
     </main>
