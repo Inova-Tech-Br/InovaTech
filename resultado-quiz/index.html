@@ -28,8 +28,8 @@
         }
 
         header p {
-            color: #1e1e2a; /* Cor mais escura para 'Teste seus conhecimentos...' */
-            font-size: 0.95rem; /* Levemente maior que 0.9rem */
+            color: #1e1e2a; 
+            font-size: 0.95rem; 
             margin-top: 5px;
             margin-bottom: 25px;
         }
@@ -41,7 +41,7 @@
             width: 100%;
             max-width: 500px;
             padding: 25px;
-            margin-bottom: 20px; /* Separar os blocos de perguntas */
+            margin-bottom: 20px; 
         }
 
         /* Ajustes para o cabeçalho do quiz (contador e barra) */
@@ -51,7 +51,7 @@
         
         .question-count {
             color: #7b61ff;
-            font-weight: bold; /* Mais forte que 500 para replicar a imagem */
+            font-weight: bold; 
             font-size: 0.9rem;
         }
 
@@ -61,21 +61,20 @@
             height: 6px;
             width: 100%;
             margin-top: 5px;
-            margin-bottom: 15px; /* Espaço após a barra de progresso */
+            margin-bottom: 15px; 
         }
 
         .progress {
             background-color: #7b61ff;
             height: 6px;
-            border-radius: 5px;
-            /* A largura será definida estaticamente abaixo */
+            border-radius: 50%;
         }
 
         /* Título da Aula */
         .lesson-title {
             font-size: 1rem;
             color: #333;
-            font-weight: 600; /* Meio termo */
+            font-weight: 600; 
             margin-bottom: 15px;
         }
 
@@ -93,23 +92,22 @@
             padding: 10px;
             border-radius: 5px;
             border: 1px solid #eee;
-            pointer-events: none; /* Impede clique para visualização estática */
+            pointer-events: none; 
             position: relative;
         }
         
         /* Estilos de acerto para a resposta correta */
         label.correct {
-            background-color: #d4edda; /* Verde claro */
-            border-color: #28a745; /* Borda verde */
-            color: #155724; /* Texto verde escuro */
+            background-color: #d4edda; 
+            border-color: #28a745; 
+            color: #155724; 
             font-weight: bold;
-            display: flex; /* Para centralizar o checkmark */
+            display: flex; 
             align-items: center;
         }
         
         /* Simulação do Checkmark Verde e Rádio Desmarcado/Marcado */
         input[type="radio"] {
-            /* Estilo dos círculos brancos */
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
@@ -123,17 +121,8 @@
             top: 2px;
         }
 
-        /* Aparência da opção correta (o checkmark real é difícil, vamos usar o visual da imagem) */
-        label.correct input[type="radio"] {
-            border-color: transparent; /* Remove borda do rádio */
-            background-color: transparent; /* Remove fundo do rádio */
-            margin-left: 0;
-            margin-right: 0;
-        }
-
-        /* Adicionar um ícone de checkmark visualmente. Usando uma div para não bagunçar o radio input. */
         .correct-icon {
-            color: #1e8e3e; /* Verde do checkmark */
+            color: #1e8e3e; 
             font-size: 1.2rem;
             margin-right: 5px;
             flex-shrink: 0;
@@ -144,7 +133,7 @@
             display: none;
         }
 
-        /* Estilo do botão de confirmar */
+        /* Estilo do botão de confirmar padrão (desabilitado) */
         button {
             width: 100%;
             background-color: #7b61ff;
@@ -155,13 +144,35 @@
             font-size: 1rem;
             cursor: default;
             margin-top: 20px;
+            display: none; /* Escondido pois a resposta já está marcada */
+        }
+        
+        /* Estilo do botão de navegação (ativo) */
+        .btn-navigation {
+            width: 100%;
+            padding: 12px 0;
+            margin-top: 25px;
+            background-color: #7b61ff; 
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-navigation:hover {
+            background-color: #5f48d4;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Quiz de Informática e Ferramentas Google</h1>
-        <p>Teste seus conhecimentos sobre o curso completo.</p>
+        <p>Teste seus conhecimentos sobre informática básica e ferramentas do Google.</p>
     </header>
 
     <main>
@@ -169,7 +180,8 @@
             <div class="quiz-header">
                 <span class="question-count">Pergunta 1 de 5</span>
                 <div class="progress-bar">
-                    <div class="progress" style="width: 4%;"></div> </div>
+                    <div class="progress" style="width: 4%;"></div>
+                </div>
             </div>
             <div class="lesson-title">Aula 1: Conceitos Fundamentais de Informática</div>
             <h2>O que é Informática?</h2>
@@ -195,7 +207,8 @@
             <div class="quiz-header">
                 <span class="question-count">Pergunta 2 de 5</span>
                 <div class="progress-bar">
-                    <div class="progress" style="width: 8%;"></div> </div>
+                    <div class="progress" style="width: 8%;"></div>
+                </div>
             </div>
             <div class="lesson-title">Aula 1: Conceitos Fundamentais de Informática</div>
             <h2>Qual é a diferença entre hardware e software?</h2>
@@ -221,7 +234,8 @@
             <div class="quiz-header">
                 <span class="question-count">Pergunta 3 de 5</span>
                 <div class="progress-bar">
-                    <div class="progress" style="width: 12%;"></div> </div>
+                    <div class="progress" style="width: 12%;"></div>
+                </div>
             </div>
             <div class="lesson-title">Aula 1: Conceitos Fundamentais de Informática</div>
             <h2>Qual é a principal função do sistema operacional?</h2>
@@ -247,7 +261,8 @@
             <div class="quiz-header">
                 <span class="question-count">Pergunta 4 de 5</span>
                 <div class="progress-bar">
-                    <div class="progress" style="width: 16%;"></div> </div>
+                    <div class="progress" style="width: 16%;"></div>
+                </div>
             </div>
             <div class="lesson-title">Aula 1: Conceitos Fundamentais de Informática</div>
             <h2>O que é uma rede de computadores?</h2>
@@ -273,7 +288,8 @@
             <div class="quiz-header">
                 <span class="question-count">Pergunta 5 de 5</span>
                 <div class="progress-bar">
-                    <div class="progress" style="width: 20%;"></div> </div>
+                    <div class="progress" style="width: 20%;"></div>
+                </div>
             </div>
             <div class="lesson-title">Aula 1: Conceitos Fundamentais de Informática</div>
             <h2>Qual das opções abaixo representa uma boa prática de segurança da informação?</h2>
@@ -293,6 +309,7 @@
                 </label>
             </form>
             <button type="button" disabled>Confirmar</button>
+            <a href="aula2.html" class="btn-navigation">Ir para a Aula 2</a>
         </section>
 
     </main>
