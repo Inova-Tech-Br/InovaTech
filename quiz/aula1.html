@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Informática e Ferramentas Google</title>
+    <link rel="stylesheet" href="/assets/css/quiz.css">
+</head>
+<body>
+    <header>
+        <h1>Quiz de Informática e Ferramentas Google</h1>
+        <p>Conceitos fundamentais de Informática - Teste seus conhecimentos sobre informática básica e ferramentas do Google</p>
+    </header>
+
+    <main>
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta <span id="numeroPergunta">1</span> de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" id="barraProgresso"></div>
+                </div>
+            </div>
+
+            <h2 id="pergunta">O que é Informática?</h2>
+
+            <form id="quizForm">
+                <label><input type="radio" name="q1" value="A"> [OPÇÃO A] - O estudo apenas dos componentes físicos do computador.</label>
+                <label><input type="radio" name="q1" value="B"> [OPÇÃO B] - A ciência que estuda o processamento, armazenamento e transmissão de informações por meio de tecnologias.</label>
+                <label><input type="radio" name="q1" value="C"> [OPÇÃO C] - Um conjunto de programas utilizados apenas em empresas.</label>
+                <label><input type="radio" name="q1" value="D"> [OPÇÃO D] - O uso exclusivo da internet para comunicação.</label>
+
+                <button type="button" id="btnConfirmar">Confirmar</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- 🔹 Botão "Conferir respostas" (inicialmente oculto) -->
+    <a href="respostas.html" class="btn-conferir" id="btnConferir">Conferir respostas</a>
+
+    <script>
+        const perguntas = [
+            {
+                texto: "O que é Informática?",
+                opcoes: [
+                    "[OPÇÃO A] - O estudo apenas dos componentes físicos do computador.",
+                    "[OPÇÃO B] - A ciência que estuda o processamento, armazenamento e transmissão de informações por meio de tecnologias.",
+                    "[OPÇÃO C] - Um conjunto de programas utilizados apenas em empresas.",
+                    "[OPÇÃO D] - O uso exclusivo da internet para comunicação."
+                ]
+            },
+            {
+                texto: "Qual é a diferença entre hardware e software?",
+                opcoes: [
+                    "[OPÇÃO A] - Hardware é o sistema operacional, e software são os dispositivos externos.",
+                    "[OPÇÃO B] - Hardware são os componentes físicos e software são os programas e sistemas do computador.",
+                    "[OPÇÃO C] - Hardware é a parte lógica e software é a parte visual.",
+                    "[OPÇÃO D] - Ambos significam a mesma coisa."
+                ]
+            },
+            {
+                texto: "Qual é a principal função do sistema operacional?",
+                opcoes: [
+                    "[OPÇÃO A] - Controlar o acesso à internet.",
+                    "[OPÇÃO B] - Armazenar arquivos permanentemente.",
+                    "[OPÇÃO C] - Servir de intermediário entre o usuário e o hardware, permitindo o uso do computador.",
+                    "[OPÇÃO D] - Impedir a instalação de novos programas."
+                ]
+            },
+            {
+                texto: "O que é uma rede de computadores?",
+                opcoes: [
+                    "[OPÇÃO A] - Um conjunto de computadores que funcionam isoladamente.",
+                    "[OPÇÃO B] - Um sistema que conecta computadores e dispositivos para compartilhar informações e recursos.",
+                    "[OPÇÃO C] - Um software que armazena dados na nuvem.",
+                    "[OPÇÃO D] - Um tipo de vírus digital."
+                ]
+            },
+            {
+                texto: "Qual das opções abaixo representa uma boa prática de segurança da informação?",
+                opcoes: [
+                    "[OPÇÃO A] - Utilizar a mesma senha para todos os sites.",
+                    "[OPÇÃO B] - Compartilhar dados pessoais em redes públicas.",
+                    "[OPÇÃO C] - Fazer backup dos arquivos importantes regularmente.",
+                    "[OPÇÃO D] - Baixar programas desconhecidos para testar."
+                ]
+            }
+        ];
+
+        let indice = 0;
+        const pergunta = document.getElementById("pergunta");
+        const numeroPergunta = document.getElementById("numeroPergunta");
+        const quizForm = document.getElementById("quizForm");
+        const barra = document.getElementById("barraProgresso");
+        const btn = document.getElementById("btnConfirmar");
+        const btnConferir = document.getElementById("btnConferir");
+
+        btn.addEventListener("click", () => {
+            const selecionada = quizForm.querySelector("input[name='q" + (indice + 1) + "']:checked");
+            if (!selecionada) {
+                alert("Por favor, selecione uma alternativa antes de continuar!");
+                return;
+            }
+
+            if (indice < perguntas.length - 1) {
+                indice++;
+                atualizarQuiz();
+            } else {
+                document.querySelector(".quiz-card").innerHTML = `
+                    <h2>Parabéns! 🎉</h2>
+                    <p>Você concluiu o Quiz de Informática e Ferramentas Google.</p>
+                `;
+                btnConferir.style.display = "inline-block"; // 🔹 mostra o botão "Conferir respostas"
+            }
+        });
+
+        function atualizarQuiz() {
+            const atual = perguntas[indice];
+            pergunta.textContent = atual.texto;
+            numeroPergunta.textContent = indice + 1;
+            const radios = atual.opcoes.map((opc, i) => `
+                <label><input type="radio" name="q${indice + 1}" value="${String.fromCharCode(65 + i)}"> ${opc}</label>
+            `).join("");
+            quizForm.innerHTML = radios + '<button type="button" id="btnConfirmar">Confirmar</button>';
+            barra.style.width = ((indice + 1) / perguntas.length) * 100 + "%";
+
+            // Reatribui evento do botão recém-criado
+            document.getElementById("btnConfirmar").addEventListener("click", () => {
+                const selecionada = quizForm.querySelector("input[name='q" + (indice + 1) + "']:checked");
+                if (!selecionada) {
+                    alert("Por favor, selecione uma alternativa antes de continuar!");
+                    return;
+                }
+
+                if (indice < perguntas.length - 1) {
+                    indice++;
+                    atualizarQuiz();
+                } else {
+                    document.querySelector(".quiz-card").innerHTML = `
+                        <h2>Parabéns! 🎉</h2>
+                        <p>Você concluiu o Quiz de Informática e Ferramentas Google.</p>
+                    `;
+                    btnConferir.style.display = "inline-block";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

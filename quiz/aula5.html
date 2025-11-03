@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Informática e Ferramentas Google</title>
+    <link rel="stylesheet" href="/assets/css/quiz.css">
+</head>
+<body>
+    <header>
+        <h1>Quiz de Informática e Ferramentas Google</h1>
+        <p>Projeto Final e encerramento - Teste seus conhecimentos sobre informática básica e ferramentas do Google</p>
+    </header>
+
+    <main>
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta <span id="numeroPergunta">1</span> de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" id="barraProgresso"></div>
+                </div>
+            </div>
+
+            <h2 id="pergunta">Qual é o principal objetivo da aula "Projeto Final e Encerramento"?</h2>
+
+            <form id="quizForm">
+                <label><input type="radio" name="q1" value="A"> [OPÇÃO A] - Aprender a usar apenas o Google Docs.</label>
+                <label><input type="radio" name="q1" value="B"> [OPÇÃO B] - Consolidar aprendizados de todas as aulas anteriores, integrando conceitos de informática e ferramentas do Google.</label>
+                <label><input type="radio" name="q1" value="C"> [OPÇÃO C] - Realizar uma prova teórica sobre as ferramentas do Google.</label>
+                <label><input type="radio" name="q1" value="D"> [OPÇÃO D] - Criar um projeto individual sem colaboração.</label>
+
+                <button type="button" id="btnConfirmar">Confirmar</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- 🔹 Botão "Conferir respostas" (inicialmente oculto) -->
+    <a href="respostas.html" class="btn-conferir" id="btnConferir">Encerrar curso</a>
+
+    <script>
+        const perguntas = [
+            {
+                texto: "Qual é o principal objetivo da aula 'Projeto Final e Encerramento'?",
+                opcoes: [
+                    "[OPÇÃO A] - Aprender a usar apenas o Google Docs..",
+                    "[OPÇÃO B] - onsolidar aprendizados de todas as aulas anteriores, integrando conceitos de informática e ferramentas do Google.",
+                    "[OPÇÃO C] - Realizar uma prova teórica sobre as ferramentas do Google.",
+                    "[OPÇÃO D] - Criar um projeto individual sem colaboração."
+                ]
+            },
+            {
+                texto: "Quais são as três ferramentas do Google que compõem a estrutura do Projeto Final?",
+                opcoes: [
+                    "[OPÇÃO A] - Google Forms, Google Meet e Google Drive.",
+                    "[OPÇÃO B] - Google Docs, Google Planilhas e Google Apresentações.",
+                    "[OPÇÃO C] - Google Agenda, Google Fotos e Google Maps.",
+                    "[OPÇÃO D] - Google Sites, Google Chat e Google Keep"
+                ]
+            },
+            {
+                texto: "No Componente 1 (Google Docs), qual é uma das dicas de colaboração mencionadas?",
+                opcoes: [
+                    "[OPÇÃO A] - Usar apenas a função de 'Sugestões' para todas as alterações.",
+                    "[OPÇÃO B] - Manter o documento privado até a conclusão.",
+                    "[OPÇÃO C] - Usar comentários para sugestões dos colegas.",
+                    "[OPÇÃO D] - Excluir o histórico de versões após cada edição.4."
+                ]
+            },
+            {
+                texto: "No Componente 2 (Google Planilhas), quais são duas funcionalidades a explorar que são mencionadas no texto?",
+                opcoes: [
+                    "[OPÇÃO A] - Criação de gráficos avançados e programação em scripts.",
+                    "[OPÇÃO B] - Inserção de dados e uso de fórmulas simples (como SUM e AVERAGE).",
+                    "[OPÇÃO C] - Conexão com bancos de dados externos e criação de dashboards.",
+                    "[OPÇÃO D] - Uso de filtros complexos e tabelas dinâmicas"
+                ]
+            },
+            {
+                texto: "Qual é o tempo disponível (por grupo) para a Apresentação dos Trabalhos e demonstração das ferramentas utilizadas?",
+                opcoes: [
+                    "[OPÇÃO A] - 1 a 3 minutos.",
+                    "[OPÇÃO B] - 5 a 7 minutos.",
+                    "[OPÇÃO C] - 10 a 12 minutos.",
+                    "[OPÇÃO D] - Sem limite de tempo."
+                ]
+            }
+        ];
+
+        let indice = 0;
+        const pergunta = document.getElementById("pergunta");
+        const numeroPergunta = document.getElementById("numeroPergunta");
+        const quizForm = document.getElementById("quizForm");
+        const barra = document.getElementById("barraProgresso");
+        const btn = document.getElementById("btnConfirmar");
+        const btnConferir = document.getElementById("btnConferir");
+
+        btn.addEventListener("click", () => {
+            const selecionada = quizForm.querySelector("input[name='q" + (indice + 1) + "']:checked");
+            if (!selecionada) {
+                alert("Por favor, selecione uma alternativa antes de continuar!");
+                return;
+            }
+
+            if (indice < perguntas.length - 1) {
+                indice++;
+                atualizarQuiz();
+            } else {
+                document.querySelector(".quiz-card").innerHTML = `
+                    <h2>Parabéns! 🎉</h2>
+                    <p>Você concluiu o Quiz de Informática e Ferramentas Google.</p>
+                `;
+                btnConferir.style.display = "inline-block"; // 🔹 mostra o botão "Conferir respostas"
+            }
+        });
+
+        function atualizarQuiz() {
+            const atual = perguntas[indice];
+            pergunta.textContent = atual.texto;
+            numeroPergunta.textContent = indice + 1;
+            const radios = atual.opcoes.map((opc, i) => `
+                <label><input type="radio" name="q${indice + 1}" value="${String.fromCharCode(65 + i)}"> ${opc}</label>
+            `).join("");
+            quizForm.innerHTML = radios + '<button type="button" id="btnConfirmar">Confirmar</button>';
+            barra.style.width = ((indice + 1) / perguntas.length) * 100 + "%";
+
+            // Reatribui evento do botão recém-criado
+            document.getElementById("btnConfirmar").addEventListener("click", () => {
+                const selecionada = quizForm.querySelector("input[name='q" + (indice + 1) + "']:checked");
+                if (!selecionada) {
+                    alert("Por favor, selecione uma alternativa antes de continuar!");
+                    return;
+                }
+
+                if (indice < perguntas.length - 1) {
+                    indice++;
+                    atualizarQuiz();
+                } else {
+                    document.querySelector(".quiz-card").innerHTML = `
+                        <h2>Parabéns! 🎉</h2>
+                        <p>Você concluiu o Quiz de Informática e Ferramentas Google.</p>
+                    `;
+                    btnConferir.style.display = "inline-block";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

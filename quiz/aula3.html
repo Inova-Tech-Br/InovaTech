@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Informática e Ferramentas Google</title>
+    <link rel="stylesheet" href="/assets/css/quiz.css">
+</head>
+<body>
+    <header>
+        <h1>Quiz de Informática e Ferramentas Google</h1>
+        <p>Documentos e Planilhas - Teste seus conhecimentos sobre informática básica e ferramentas do Google</p>
+    </header>
+
+    <main>
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta <span id="numeroPergunta">1</span> de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" id="barraProgresso"></div>
+                </div>
+            </div>
+
+            <h2 id="pergunta">Qual é o caminho correto para criar um novo documento no Google Docs a partir do
+            Google Drive</h2>
+
+            <form id="quizForm">
+                <label><input type="radio" name="q1" value="A"> [OPÇÃO A] - Drive → “Upload de Arquivo” → “Novo Documento”</label>
+                <label><input type="radio" name="q1" value="B"> [OPÇÃO B] - Drive → “Compartilhar” → “Novo” → “Documento de Texto”</label>
+                <label><input type="radio" name="q1" value="C"> [OPÇÃO C] - Drive → “Novo” → “Documentos Google”</label>
+                <label><input type="radio" name="q1" value="D"> [OPÇÃO D] - Drive → “Ferramentas” → “Criar Documento”</label>
+
+                <button type="button" id="btnConfirmar">Confirmar</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- 🔹 Botão "Conferir respostas" (inicialmente oculto) -->
+    <a href="respostas.html" class="btn-conferir" id="btnConferir">Conferir respostas</a>
+
+    <script>
+        const perguntas = [
+            {
+                texto: "Qual é o caminho correto para criar um novo documento no Google Docs a partir do Google Drive",
+                opcoes: [
+                    "[OPÇÃO A] - Drive → “Upload de Arquivo” → “Novo Documento”",
+                    "[OPÇÃO B] - Drive → “Compartilhar” → “Novo” → “Documento de Texto”",
+                    "[OPÇÃO C] - Drive → “Novo” → “Documentos Google”",
+                    "[OPÇÃO D] - Drive → “Ferramentas” → “Criar Documento”"
+                ]
+            },
+            {
+                texto: "Durante a demonstração de formatação, quais foram alguns dos recursos aplicados ao documento “Relatório de Vendas – Outubro”?",
+                opcoes: [
+                    "[OPÇÃO A] - Inserção de gráficos e tabelas dinâmicas",
+                    "[OPÇÃO B] - Aplicação de negrito, itálico, alinhamento e imagem",
+                    "[OPÇÃO C] - Criação de planilhas e fórmulas automáticas",
+                    "[OPÇÃO D] - Configuração de permissões de edição avançadas"
+                ]
+            },
+            {
+                texto: "Na planilha “Controle de Gastos”, quais fórmulas foram usadas para calcular total e média dos valores?",
+                opcoes: [
+                    "[OPÇÃO A] - =MÁXIMO(D2:D6) e =MÍNIMO(D2:D6)",
+                    "[OPÇÃO B] - =SOMA(D2:D6) e =MÉDIA(D2:D6)",
+                    "[OPÇÃO C] - =PROCV(D2:D6) e =SOMA(A2:A6)",
+                    "[OPÇÃO D] - =CONT.SE(D2:D6) e =SE(D2>100;“Sim”;“Não”)"
+                ]
+            },
+            {
+                texto: "Qual é a principal vantagem de usar o botão “Compartilhar” nos documentos e planilhas do Google?",
+                opcoes: [
+                    "[OPÇÃO A] - Permite enviar o arquivo por e-mail como anexo",
+                    "[OPÇÃO B] - Garante que o arquivo seja salvo no computador do usuário",
+                    "[OPÇÃO C] - Permite colaboração em tempo real com diferentes níveis de permissão",
+                    "[OPÇÃO D] - Bloqueia o acesso de outros usuários à edição"
+                ]
+            },
+            {
+                texto: "Qual é o objetivo da atividade prática proposta no final da vídeo-aula?",
+                opcoes: [
+                    "[OPÇÃO A] - Criar um documento e uma planilha offline no computador",
+                    "[OPÇÃO B] - Produzir um documento e uma planilha no Google, aplicando o que foi ensinado",
+                    "[OPÇÃO C] - Aprender a exportar arquivos em formato PDF",
+                    "[OPÇÃO D] - Inserir gráficos e comentários em planilhas avançadas"
+                ]
+            }
+        ];
+
+        let indice = 0;
+        const pergunta = document.getElementById("pergunta");
+        const numeroPergunta = document.getElementById("numeroPergunta");
+        const quizForm = document.getElementById("quizForm");
+        const barra = document.getElementById("barraProgresso");
+        const btn = document.getElementById("btnConfirmar");
+        const btnConferir = document.getElementById("btnConferir");
+
+        btn.addEventListener("click", () => {
+            const selecionada = quizForm.querySelector("input[name='q" + (indice + 1) + "']:checked");
+            if (!selecionada) {
+                alert("Por favor, selecione uma alternativa antes de continuar!");
+                return;
+            }
+
+            if (indice < perguntas.length - 1) {
+                indice++;
+                atualizarQuiz();
+            } else {
+                document.querySelector(".quiz-card").innerHTML = `
+                    <h2>Parabéns! 🎉</h2>
+                    <p>Você concluiu o Quiz de Informática e Ferramentas Google.</p>
+                `;
+                btnConferir.style.display = "inline-block"; // 🔹 mostra o botão "Conferir respostas"
+            }
+        });
+
+        function atualizarQuiz() {
+            const atual = perguntas[indice];
+            pergunta.textContent = atual.texto;
+            numeroPergunta.textContent = indice + 1;
+            const radios = atual.opcoes.map((opc, i) => `
+                <label><input type="radio" name="q${indice + 1}" value="${String.fromCharCode(65 + i)}"> ${opc}</label>
+            `).join("");
+            quizForm.innerHTML = radios + '<button type="button" id="btnConfirmar">Confirmar</button>';
+            barra.style.width = ((indice + 1) / perguntas.length) * 100 + "%";
+
+            // Reatribui evento do botão recém-criado
+            document.getElementById("btnConfirmar").addEventListener("click", () => {
+                const selecionada = quizForm.querySelector("input[name='q" + (indice + 1) + "']:checked");
+                if (!selecionada) {
+                    alert("Por favor, selecione uma alternativa antes de continuar!");
+                    return;
+                }
+
+                if (indice < perguntas.length - 1) {
+                    indice++;
+                    atualizarQuiz();
+                } else {
+                    document.querySelector(".quiz-card").innerHTML = `
+                        <h2>Parabéns! 🎉</h2>
+                        <p>Você concluiu o Quiz de Informática e Ferramentas Google.</p>
+                    `;
+                    btnConferir.style.display = "inline-block";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
