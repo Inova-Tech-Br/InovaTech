@@ -1,10 +1,11 @@
-=<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz de Informática e Ferramentas Google</title>
+    <title>Quiz de Informática - Aula 1</title>
     <style>
+        /* CSS base replicado do seu código */
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f6ff;
@@ -27,9 +28,10 @@
         }
 
         header p {
-            color: #6c6c8c;
-            font-size: 0.9rem;
+            color: #1e1e2a; /* Cor mais escura para 'Teste seus conhecimentos...' */
+            font-size: 0.95rem; /* Levemente maior que 0.9rem */
             margin-top: 5px;
+            margin-bottom: 25px;
         }
 
         .quiz-card {
@@ -39,15 +41,18 @@
             width: 100%;
             max-width: 500px;
             padding: 25px;
+            margin-bottom: 20px; /* Separar os blocos de perguntas */
         }
 
+        /* Ajustes para o cabeçalho do quiz (contador e barra) */
         .quiz-header {
             margin-bottom: 15px;
         }
-
+        
         .question-count {
             color: #7b61ff;
-            font-weight: 500;
+            font-weight: bold; /* Mais forte que 500 para replicar a imagem */
+            font-size: 0.9rem;
         }
 
         .progress-bar {
@@ -56,27 +61,28 @@
             height: 6px;
             width: 100%;
             margin-top: 5px;
+            margin-bottom: 15px; /* Espaço após a barra de progresso */
         }
 
         .progress {
             background-color: #7b61ff;
             height: 6px;
             border-radius: 5px;
-            width: 0%;
-            transition: width 0.3s ease;
+            /* A largura será definida estaticamente abaixo */
         }
 
-        #lesson-title { /* Estilo para o título da aula */
-            color: #1f1f3b;
+        /* Título da Aula */
+        .lesson-title {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 600; /* Meio termo */
             margin-bottom: 15px;
-            font-size: 1.1rem;
-            border-bottom: 2px solid #e6e6e6;
-            padding-bottom: 8px;
         }
 
         h2 {
             font-size: 1.2rem;
             margin-bottom: 20px;
+            font-weight: bold;
         }
 
         label {
@@ -84,37 +90,61 @@
             margin-bottom: 12px;
             font-size: 0.95rem;
             color: #333;
-            cursor: pointer;
             padding: 10px;
             border-radius: 5px;
-            transition: background-color 0.2s;
             border: 1px solid #eee;
+            pointer-events: none; /* Impede clique para visualização estática */
+            position: relative;
         }
         
-        label:hover {
-            background-color: #f0f0f0;
-        }
-
-        /* Estilos para feedback de acerto/erro */
+        /* Estilos de acerto para a resposta correta */
         label.correct {
             background-color: #d4edda; /* Verde claro */
             border-color: #28a745; /* Borda verde */
             color: #155724; /* Texto verde escuro */
             font-weight: bold;
+            display: flex; /* Para centralizar o checkmark */
+            align-items: center;
         }
-
-        label.incorrect {
-            background-color: #f8d7da; /* Vermelho claro */
-            border-color: #dc3545; /* Borda vermelha */
-            color: #721c24; /* Texto vermelho escuro */
-            font-weight: bold;
-        }
-
+        
+        /* Simulação do Checkmark Verde e Rádio Desmarcado/Marcado */
         input[type="radio"] {
-            margin-right: 8px;
-            pointer-events: none;
+            /* Estilo dos círculos brancos */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            margin-right: 10px;
+            flex-shrink: 0;
+            position: relative;
+            top: 2px;
         }
 
+        /* Aparência da opção correta (o checkmark real é difícil, vamos usar o visual da imagem) */
+        label.correct input[type="radio"] {
+            border-color: transparent; /* Remove borda do rádio */
+            background-color: transparent; /* Remove fundo do rádio */
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        /* Adicionar um ícone de checkmark visualmente. Usando uma div para não bagunçar o radio input. */
+        .correct-icon {
+            color: #1e8e3e; /* Verde do checkmark */
+            font-size: 1.2rem;
+            margin-right: 5px;
+            flex-shrink: 0;
+        }
+        
+        /* Oculta o radio button real na opção correta para usar o ícone */
+        label.correct input[type="radio"] {
+            display: none;
+        }
+
+        /* Estilo do botão de confirmar */
         button {
             width: 100%;
             background-color: #7b61ff;
@@ -123,41 +153,8 @@
             border-radius: 8px;
             padding: 10px 0;
             font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.2s ease;
+            cursor: default;
             margin-top: 20px;
-        }
-
-        button:hover:not(:disabled) {
-            background-color: #5f48d4;
-        }
-
-        button:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
-        }
-        
-        .resultado {
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .resultado h2 {
-            color: #7b61ff;
-            font-size: 1.5rem;
-        }
-        
-        .resultado p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-        
-        .resultado button {
-            background-color: #1f1f3b;
-        }
-        
-        .resultado button:hover {
-            background-color: #333355;
         }
     </style>
 </head>
@@ -170,385 +167,134 @@
     <main>
         <section class="quiz-card">
             <div class="quiz-header">
-                <span class="question-count">Pergunta <span id="numeroPergunta">1</span> de 25</span>
+                <span class="question-count">Pergunta 1 de 5</span>
                 <div class="progress-bar">
-                    <div class="progress" id="barraProgresso"></div>
-                </div>
+                    <div class="progress" style="width: 4%;"></div> </div>
             </div>
-
-            <div id="quiz-container">
-                <h3 id="lesson-title"></h3>
-                
-                <h2 id="pergunta"></h2>
-                <form id="quizForm"></form>
-                <button type="button" id="btnConfirmar">Confirmar</button>
-            </div>
+            <div class="lesson-title">Aula 1: Conceitos Fundamentais de Informática</div>
+            <h2>O que é Informática?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q1" disabled> [OPÇÃO A] - O estudo apenas dos componentes físicos do computador.
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    [OPÇÃO B] - A ciência que estuda o processamento, armazenamento e transmissão de informações por meio de tecnologias.
+                </label>
+                <label>
+                    <input type="radio" name="q1" disabled> [OPÇÃO C] - Um conjunto de programas utilizados apenas em empresas.
+                </label>
+                <label>
+                    <input type="radio" name="q1" disabled> [OPÇÃO D] - O uso exclusivo do internet para comunicação.
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
         </section>
+
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 2 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 8%;"></div> </div>
+            </div>
+            <div class="lesson-title">Aula 1: Conceitos Fundamentais de Informática</div>
+            <h2>Qual é a diferença entre hardware e software?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q2" disabled> [OPÇÃO A] - Hardware é o sistema operacional, e software são os dispositivos externos.
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    [OPÇÃO B] - Hardware são os componentes físicos e software são os programas e sistemas do computador.
+                </label>
+                <label>
+                    <input type="radio" name="q2" disabled> [OPÇÃO C] - Hardware é a parte lógica e software é a parte visual.
+                </label>
+                <label>
+                    <input type="radio" name="q2" disabled> [OPÇÃO D] - Ambos significam a mesma coisa.
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 3 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 12%;"></div> </div>
+            </div>
+            <div class="lesson-title">Aula 1: Conceitos Fundamentais de Informática</div>
+            <h2>Qual é a principal função do sistema operacional?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q3" disabled> [OPÇÃO A] - Controlar o acesso à internet.
+                </label>
+                <label>
+                    <input type="radio" name="q3" disabled> [OPÇÃO B] - Armazenar arquivos permanentemente.
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    [OPÇÃO C] - Servir de intermediário entre o usuário e o hardware, permitindo o uso do computador.
+                </label>
+                <label>
+                    <input type="radio" name="q3" disabled> [OPÇÃO D] - Impedir a instalação de novos programas.
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 4 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 16%;"></div> </div>
+            </div>
+            <div class="lesson-title">Aula 1: Conceitos Fundamentais de Informática</div>
+            <h2>O que é uma rede de computadores?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q4" disabled> [OPÇÃO A] - Um conjunto de computadores que funcionam isoladamente.
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    [OPÇÃO B] - Um sistema que conecta computadores e dispositivos para compartilhar informações e recursos.
+                </label>
+                <label>
+                    <input type="radio" name="q4" disabled> [OPÇÃO C] - Um software que armazena dados na nuvem.
+                </label>
+                <label>
+                    <input type="radio" name="q4" disabled> [OPÇÃO D] - Um tipo de vírus digital.
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 5 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 20%;"></div> </div>
+            </div>
+            <div class="lesson-title">Aula 1: Conceitos Fundamentais de Informática</div>
+            <h2>Qual das opções abaixo representa uma boa prática de segurança da informação?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q5" disabled> [OPÇÃO A] - Utilizar a mesma senha para todos os sites.
+                </label>
+                <label>
+                    <input type="radio" name="q5" disabled> [OPÇÃO B] - Compartilhar dados pessoais em redes públicas.
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    [OPÇÃO C] - Fazer backup dos arquivos importantes regularmente.
+                </label>
+                <label>
+                    <input type="radio" name="q5" disabled> [OPÇÃO D] - Baixar programas desconhecidos para testar.
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+
     </main>
-
-    <script>
-        const quizData = [
-            // Aula 1: Conceitos Fundamentais de Informática (Questões 1 a 5)
-            {
-                question: "O que é Informática?",
-                options: [
-                    "O estudo apenas dos componentes físicos do computador.",
-                    "A ciência que estuda o processamento, armazenamento e transmissão de informações por meio de tecnologias.",
-                    "Um conjunto de programas utilizados apenas em empresas.",
-                    "O uso exclusivo da internet para comunicação."
-                ],
-                correct: 1
-            },
-            {
-                question: "Qual é a diferença entre hardware e software?",
-                options: [
-                    "Hardware é o sistema operacional, e software são os dispositivos externos.",
-                    "Hardware são os componentes físicos e software são os programas e sistemas do computador.",
-                    "Hardware é a parte lógica e software é a parte visual.",
-                    "Ambos significam a mesma coisa."
-                ],
-                correct: 1
-            },
-            {
-                question: "Qual é a principal função do sistema operacional?",
-                options: [
-                    "Controlar o acesso à internet.",
-                    "Armazenar arquivos permanentemente.",
-                    "Servir de intermediário entre o usuário e o hardware, permitindo o uso do computador.",
-                    "Impedir a instalação de novos programas."
-                ],
-                correct: 2
-            },
-            {
-                question: "O que é uma rede de computadores?",
-                options: [
-                    "Um conjunto de computadores que funcionam isoladamente.",
-                    "Um sistema que conecta computadores e dispositivos para compartilhar informações e recursos.",
-                    "Um software que armazena dados na nuvem.",
-                    "Um tipo de vírus digital."
-                ],
-                correct: 1
-            },
-            {
-                question: "Qual das opções abaixo representa uma boa prática de segurança da informação?",
-                options: [
-                    "Utilizar a mesma senha para todos os sites.",
-                    "Compartilhar dados pessoais em redes públicas.",
-                    "Fazer backup dos arquivos importantes regularmente.",
-                    "Baixar programas desconhecidos para testar."
-                ],
-                correct: 2
-            },
-            // Aula 2: Introdução à Conta e Google Drive (Questões 6 a 10)
-            {
-                question: "O que é uma Conta Google?",
-                options: [
-                    "Um aplicativo para armazenar vídeos",
-                    "Uma identidade digital que dá acesso a diversos serviços do Google",
-                    "Um programa para editar documentos",
-                    "Uma rede social"
-                ],
-                correct: 1
-            },
-            {
-                question: "Qual dessas opções NÃO é um serviço disponível em uma Conta Google?",
-                options: [
-                    "Gmail",
-                    "YouTube",
-                    "Google Drive",
-                    "iCloud"
-                ],
-                correct: 3
-            },
-            {
-                question: "Qual é o primeiro passo para criar uma Conta Google?",
-                options: [
-                    "Clicar em “Criar conta”",
-                    "Acessar www.google.com.br",
-                    "Preencher os dados solicitados",
-                    "Concordar com os Termos"
-                ],
-                correct: 1
-            },
-            {
-                question: "O que é o Google Drive?",
-                options: [
-                    "Um aplicativo de e-mail",
-                    "Um serviço de armazenamento em nuvem",
-                    "Um editor de vídeo",
-                    "Um navegador de internet"
-                ],
-                correct: 1
-            },
-            {
-                question: "Qual botão deve ser usado para criar uma nova pasta ou enviar arquivos no Google Drive?",
-                options: [
-                    "“Upload”",
-                    "“Compartilhar”",
-                    "“Novo”",
-                    "“Salvar”"
-                ],
-                correct: 2
-            },
-            // Aula 3: Google Docs e Sheets (Produtividade e Fórmulas) (Questões 11 a 15)
-            {
-                question: "Google Docs – Criação de Documentos: Qual é o caminho correto para criar um novo documento no Google Docs a partir do Google Drive?",
-                options: [
-                    "Drive → “Upload de Arquivo” → “Novo Documento”",
-                    "Drive → “Compartilhar” → “Novo” → “Documento de Texto”",
-                    "Drive → “Novo” → “Documentos Google”",
-                    "Drive → “Ferramentas” → “Criar Documento”"
-                ],
-                correct: 2
-            },
-            {
-                question: "Google Docs – Formatação de Texto: Durante a demonstração de formatação, quais foram alguns dos recursos aplicados ao documento “Relatório de Vendas – Outubro”?",
-                options: [
-                    "Inserção de gráficos e tabelas dinâmicas",
-                    "Aplicação de negrito, itálico, alinhamento e imagem",
-                    "Criação de planilhas e fórmulas automáticas",
-                    "Configuração de permissões de edição avançadas"
-                ],
-                correct: 1
-            },
-            {
-                question: "Google Sheets – Uso de Fórmulas: Na planilha “Controle de Gastos”, quais fórmulas foram usadas para calcular total e média dos valores?",
-                options: [
-                    "=MÁXIMO(D2:D6) e =MÍNIMO(D2:D6)",
-                    "=SOMA(D2:D6) e =MÉDIA(D2:D6)",
-                    "=PROCV(D2:D6) e =SOMA(A2:A6)",
-                    "=CONT.SE(D2:D6) e =SE(D2>100;“Sim”;“Não”)"
-                ],
-                correct: 1
-            },
-            {
-                question: "Google Drive – Colaboração e Compartilhamento: Qual é a principal vantagem de usar o botão “Compartilhar” nos documentos e planilhas do Google?",
-                options: [
-                    "Permite enviar o arquivo por e-mail como anexo",
-                    "Garante que o arquivo seja salvo no computador do usuário",
-                    "Permite colaboração em tempo real com diferentes níveis de permissão",
-                    "Bloqueia o acesso de outros usuários à edição"
-                ],
-                correct: 2
-            },
-            {
-                question: "Atividade Prática – Aplicação dos Conceitos: Qual é o objetivo da atividade prática proposta no final da vídeo-aula?",
-                options: [
-                    "Criar um documento e uma planilha offline no computador",
-                    "Produzir um documento e uma planilha no Google, aplicando o que foi ensinado",
-                    "Aprender a exportar arquivos em formato PDF",
-                    "Inserir gráficos e comentários em planilhas avançadas"
-                ],
-                correct: 1
-            },
-            // Aula 4: Comunicação e Organização (Apresentações, Gmail, Meet, Agenda) (Questões 16 a 20)
-            {
-                question: "Google Apresentações - Boas Práticas de Design: Qual das seguintes opções NÃO é considerada uma boa prática de design em apresentações?",
-                options: [
-                    "Usar fontes legíveis com bom contraste entre texto e fundo",
-                    "Inserir múltiplas imagens grandes em cada slide para preencher espaço",
-                    "Manter consistência visual em todos os slides",
-                    "Evitar poluição visual com muitos elementos competindo pela atenção"
-                ],
-                correct: 1
-            },
-            {
-                question: "Gmail - Organização da Caixa de Entrada: Qual é a principal vantagem de usar filtros automáticos no Gmail?",
-                options: [
-                    "Aumentar o número de e-mails recebidos",
-                    "Automatizar ações como mover, arquivar ou marcar e-mails, economizando tempo",
-                    "Deletar automaticamente todos os e-mails antigos",
-                    "Impedir que novos e-mails cheguem à caixa de entrada"
-                ],
-                correct: 1
-            },
-            {
-                question: "Google Agenda - Encontrar Horário Disponível: Qual recurso do Google Agenda permite visualizar a disponibilidade de vários convidados para encontrar o melhor horário para uma reunião?",
-                options: [
-                    "Sincronização com dispositivos móveis",
-                    "Configuração de fusos horários",
-                    "Encontrar um Horário (Find a Time)",
-                    "Lembretes automáticos por e-mail"
-                ],
-                correct: 2
-            },
-            {
-                question: "Google Meet - Etiqueta Digital: Qual das seguintes práticas é recomendada para manter a etiqueta digital profissional durante uma videoconferência no Google Meet?",
-                options: [
-                    "Deixar a câmera e o microfone sempre ligados, independentemente da situação",
-                    "Manter o microfone mudo quando não estiver falando e usar um fundo neutro e silencioso",
-                    "Usar roupas informais e trabalhar em ambientes barulhentos",
-                    "Entrar na reunião alguns minutos após o horário agendado"
-                ],
-                correct: 1
-            },
-            {
-                question: "Atividade Prática - Aplicação das Ferramentas: A atividade prática da aula propõe duas etapas principais. Qual é o objetivo da primeira etapa?",
-                options: [
-                    "Agendar uma reunião com todos os colegas da turma",
-                    "Criar um slide de apresentação pessoal incluindo nome, interesses e uma imagem ilustrativa",
-                    "Enviar um e-mail profissional para o professor",
-                    "Participar de uma videoconferência em grupo"
-                ],
-                correct: 1
-            },
-            // Aula 5: Projeto Final e Revisão (Questões 21 a 25)
-            {
-                question: "Qual é o principal objetivo da aula 'Projeto Final e Encerramento'?",
-                options: [
-                    "Aprender a usar apenas o Google Docs.",
-                    "Consolidar aprendizados de todas as aulas anteriores, integrando conceitos de informática e ferramentas do Google.",
-                    "Realizar uma prova teórica sobre as ferramentas do Google.",
-                    "Criar um projeto individual sem colaboração."
-                ],
-                correct: 1
-            },
-            {
-                question: "Quais são as três ferramentas do Google que compõem a estrutura do Projeto Final?",
-                options: [
-                    "Google Forms, Google Meet e Google Drive.",
-                    "Google Docs, Google Planilhas e Google Apresentações.",
-                    "Google Agenda, Google Fotos e Google Maps.",
-                    "Google Sites, Google Chat e Google Keep."
-                ],
-                correct: 1
-            },
-            {
-                question: "No Componente 1 (Google Docs), qual é uma das dicas de colaboração mencionadas?",
-                options: [
-                    "Usar apenas a função de 'Sugestões' para todas as alterações.",
-                    "Manter o documento privado até a conclusão.",
-                    "Usar comentários para sugestões dos colegas.",
-                    "Excluir o histórico de versões após cada edição."
-                ],
-                correct: 2
-            },
-            {
-                question: "No Componente 2 (Google Planilhas), quais são duas funcionalidades a explorar que são mencionadas no texto?",
-                options: [
-                    "Criação de gráficos avançados e programação em scripts.",
-                    "Inserção de dados e uso de fórmulas simples (como SUM e AVERAGE).",
-                    "Conexão com bancos de dados externos e criação de dashboards.",
-                    "Uso de filtros complexos e tabelas dinâmicas."
-                ],
-                correct: 1
-            },
-            {
-                question: "Qual é o tempo disponível (por grupo) para a Apresentação dos Trabalhos e demonstração das ferramentas utilizadas?",
-                options: [
-                    "1 a 3 minutos.",
-                    "5 a 7 minutos.",
-                    "10 a 12 minutos.",
-                    "Sem limite de tempo."
-                ],
-                correct: 1
-            }
-        ];
-
-        // Mapeamento das Aulas e Títulos
-        const lessonMap = [
-            { start: 0, title: "Aula 1: Conceitos Fundamentais de Informática" },
-            { start: 5, title: "Aula 2: Introdução à Conta e Google Drive" },
-            { start: 10, title: "Aula 3: Google Docs e Sheets (Produtividade e Fórmulas)" },
-            { start: 15, title: "Aula 4: Comunicação e Organização (Apresentações, Gmail, Meet, Agenda)" },
-            { start: 20, title: "Aula 5: Projeto Final e Revisão" }
-        ];
-
-        let currentQuestionIndex = 0;
-        let score = 0;
-
-        const questionEl = document.getElementById('pergunta');
-        const quizForm = document.getElementById('quizForm');
-        const btnConfirmar = document.getElementById('btnConfirmar');
-        const numeroPerguntaEl = document.getElementById('numeroPergunta');
-        const barraProgressoEl = document.getElementById('barraProgresso');
-        const quizContainer = document.getElementById('quiz-container');
-        const lessonTitleEl = document.getElementById('lesson-title'); // Novo elemento
-
-        function loadQuestion() {
-            if (currentQuestionIndex >= quizData.length) {
-                showResult();
-                return;
-            }
-
-            const currentQuestion = quizData[currentQuestionIndex];
-
-            // 1. Lógica para exibir o Título da Aula
-            // Encontra a aula correta para o índice da pergunta atual
-            const currentLesson = lessonMap.slice().reverse().find(lesson => currentQuestionIndex >= lesson.start);
-            if (currentLesson) {
-                lessonTitleEl.textContent = currentLesson.title;
-            }
-
-            // 2. Atualiza o contador e a barra de progresso
-            numeroPerguntaEl.textContent = currentQuestionIndex + 1;
-            barraProgressoEl.style.width = (currentQuestionIndex / quizData.length) * 100 + "%";
-
-            // 3. Carrega a pergunta e opções
-            questionEl.textContent = currentQuestion.question;
-
-            quizForm.innerHTML = '';
-            currentQuestion.options.forEach((option, index) => {
-                const label = document.createElement('label');
-                label.innerHTML = `<input type="radio" name="answer" value="${index}"> ${option}`;
-                quizForm.appendChild(label);
-            });
-
-            btnConfirmar.disabled = false; // Habilita o botão para a nova pergunta
-        }
-
-        function checkAnswer() {
-            const selectedAnswerInput = document.querySelector('input[name="answer"]:checked');
-
-            if (!selectedAnswerInput) {
-                alert("Por favor, selecione uma resposta antes de confirmar.");
-                return;
-            }
-
-            btnConfirmar.disabled = true;
-
-            const selectedValue = parseInt(selectedAnswerInput.value);
-            const correctAnswer = quizData[currentQuestionIndex].correct;
-
-            const selectedLabel = selectedAnswerInput.closest('label');
-            const allLabels = quizForm.querySelectorAll('label');
-
-            // Adiciona classe de feedback visual
-            if (selectedValue === correctAnswer) {
-                score++;
-                selectedLabel.classList.add('correct');
-            } else {
-                selectedLabel.classList.add('incorrect');
-                // Revela a resposta correta em verde
-                allLabels[correctAnswer].classList.add('correct');
-            }
-
-            // Desabilita todos os rádios para que o usuário não mude a resposta
-            quizForm.querySelectorAll('input[type="radio"]').forEach(radio => {
-                radio.disabled = true;
-            });
-
-            // Aguarda um momento antes de carregar a próxima pergunta
-            setTimeout(() => {
-                currentQuestionIndex++;
-                loadQuestion();
-            }, 1500);
-        }
-
-        function showResult() {
-            barraProgressoEl.style.width = "100%";
-            quizContainer.innerHTML = `
-                <div class="resultado">
-                    <h2>Quiz Concluído! 🎉</h2>
-                    <p>Você acertou ${score} de ${quizData.length} perguntas.</p>
-                    <button onclick="location.reload()">Refazer Quiz</button>
-                </div>
-            `;
-        }
-
-        btnConfirmar.addEventListener('click', checkAnswer);
-        
-        loadQuestion();
-    </script>
 </body>
 </html>
