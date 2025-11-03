@@ -1,1 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Informática - Aula 4</title>
+    <style>
+        /* CSS base replicado do seu código */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f6ff;
+            color: #1e1e2a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 30px;
+        }
 
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: #1f1f3b;
+        }
+
+        header p {
+            color: #1e1e2a; 
+            font-size: 0.95rem; 
+            margin-top: 5px;
+            margin-bottom: 25px;
+        }
+
+        .quiz-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 500px;
+            padding: 25px;
+            margin-bottom: 20px; 
+        }
+
+        /* Ajustes para o cabeçalho do quiz (contador e barra) */
+        .quiz-header {
+            margin-bottom: 15px;
+        }
+        
+        .question-count {
+            color: #7b61ff;
+            font-weight: bold; 
+            font-size: 0.9rem;
+        }
+
+        .progress-bar {
+            background-color: #e6e6e6;
+            border-radius: 5px;
+            height: 6px;
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 15px; 
+        }
+
+        .progress {
+            background-color: #7b61ff;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        /* Título da Aula */
+        .lesson-title {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 600; 
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #eee;
+            pointer-events: none; 
+            position: relative;
+        }
+        
+        /* Estilos de acerto para a resposta correta */
+        label.correct {
+            background-color: #d4edda; 
+            border-color: #28a745; 
+            color: #155724; 
+            font-weight: bold;
+            display: flex; 
+            align-items: center;
+        }
+        
+        /* Simulação do Checkmark Verde e Rádio Desmarcado/Marcado */
+        input[type="radio"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            margin-right: 10px;
+            flex-shrink: 0;
+            position: relative;
+            top: 2px;
+        }
+
+        .correct-icon {
+            color: #1e8e3e; 
+            font-size: 1.2rem;
+            margin-right: 5px;
+            flex-shrink: 0;
+        }
+        
+        /* Oculta o radio button real na opção correta para usar o ícone */
+        label.correct input[type="radio"] {
+            display: none;
+        }
+
+        /* Estilo do botão de confirmar padrão (desabilitado) */
+        button {
+            width: 100%;
+            background-color: #7b61ff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 0;
+            font-size: 1rem;
+            cursor: default;
+            margin-top: 20px;
+            display: none;
+        }
+
+        /* Estilo do botão de navegação (ativo) */
+        .btn-navigation {
+            width: 100%;
+            padding: 12px 0;
+            margin-top: 25px;
+            background-color: #7b61ff; 
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-navigation:hover {
+            background-color: #5f48d4;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Quiz de Informática e Ferramentas Google</h1>
+        <p>Teste seus conhecimentos sobre Informática básica e ferramentas do Google.</p>
+    </header>
+
+    <main>
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 1 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 64%;"></div>
+                </div>
+            </div>
+            <div class="lesson-title">Aula 4: Comunicação e Organização (Apresentações, Gmail, Meet, Agenda)</div>
+            <h2>Google Apresentações - Boas Práticas de Design: Qual das seguintes opções NÃO é considerada uma boa prática de design em apresentações?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q16" disabled> [OPÇÃO A] - Usar fontes legíveis com bom contraste entre texto e fundo
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                   [OPÇÃO B] -  Inserir múltiplas imagens grandes em cada slide para preencher espaço
+                </label>
+                <label>
+                    <input type="radio" name="q16" disabled> [OPÇÃO C] - Manter consistência visual em todos os slides
+                </label>
+                <label>
+                    <input type="radio" name="q16" disabled> [OPÇÃO D] - Evitar poluição visual com muitos elementos competindo pela atenção
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 2 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 68%;"></div>
+                </div>
+            </div>
+            <div class="lesson-title">Aula 4: Comunicação e Organização (Apresentações, Gmail, Meet, Agenda)</div>
+            <h2>Gmail - Organização da Caixa de Entrada: Qual é a principal vantagem de usar filtros automáticos no Gmail?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q17" disabled> [OPÇÃO A] - Aumentar o número de e-mails recebidos
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    [OPÇÃO B] - Automatizar ações como mover, arquivar ou marcar e-mails, economizando tempo
+                </label>
+                <label>
+                    <input type="radio" name="q17" disabled> [OPÇÃO C] - Deletar automaticamente todos os e-mails antigos
+                </label>
+                <label>
+                    <input type="radio" name="q17" disabled> [OPÇÃO D] - Impedir que novos e-mails cheguem à caixa de entrada
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+        
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 3 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 72%;"></div>
+                </div>
+            </div>
+            <div class="lesson-title">Aula 4: Comunicação e Organização (Apresentações, Gmail, Meet, Agenda)</div>
+            <h2>Google Agenda - Encontrar Horário Disponível: Qual recurso do Google Agenda permite visualizar a disponibilidade de vários convidados para encontrar o melhor horário para uma reunião?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q18" disabled> [OPÇÃO A] - Sincronização com dispositivos móveis
+                </label>
+                <label>
+                    <input type="radio" name="q18" disabled> [OPÇÃO B] - Configuração de fusos horários
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    [OPÇÃO C] - Encontrar um Horário (Find a Time)
+                </label>
+                <label>
+                    <input type="radio" name="q18" disabled> [OPÇÃO D] - Lembretes automáticos por e-mail
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 4 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 76%;"></div>
+                </div>
+            </div>
+            <div class="lesson-title">Aula 4: Comunicação e Organização (Apresentações, Gmail, Meet, Agenda)</div>
+            <h2>Google Meet - Etiqueta Digital: Qual das seguintes práticas é recomendada para manter a etiqueta digital profissional durante uma videoconferência no Google Meet?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q19" disabled> [OPÇÃO A] - Deixar a câmera e o microfone sempre ligados, independentemente da situação
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    [OPÇÃO B] - Manter o microfone mudo quando não estiver falando e usar um fundo neutro e silencioso
+                </label>
+                <label>
+                    <input type="radio" name="q19" disabled> [OPÇÃO C] - Usar roupas informais e trabalhar em ambientes barulhentos
+                </label>
+                <label>
+                    <input type="radio" name="q19" disabled> [OPÇÃO D] - Entrar na reunião alguns minutos após o horário agendado
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 5 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 80%;"></div>
+                </div>
+            </div>
+            <div class="lesson-title">Aula 4: Comunicação e Organização (Apresentações, Gmail, Meet, Agenda)</div>
+            <h2>Atividade Prática - Aplicação das Ferramentas: A atividade prática da aula propõe duas etapas principais. Qual é o objetivo da primeira etapa?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q20" disabled> [OPÇÃO A] - Agendar uma reunião com todos os colegas da turma
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                   [OPÇÃO B] -  Criar um slide de apresentação pessoal incluindo nome, interesses e uma imagem ilustrativa
+                </label>
+                <label>
+                    <input type="radio" name="q20" disabled> [OPÇÃO C] - Enviar um e-mail profissional para o professor
+                </label>
+                <label>
+                    <input type="radio" name="q20" disabled> [OPÇÃO D] - Participar de uma videoconferência em grupo
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+
+            <a href="aula5.html" class="btn-navigation">Ir para a Aula 5 (Projeto Final)</a>
+        </section>
+
+    </main>
+</body>
+</html>
