@@ -1,1 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Informática - Aula 3</title>
+    <style>
+        /* CSS base replicado do seu código */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f6ff;
+            color: #1e1e2a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 30px;
+        }
 
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: #1f1f3b;
+        }
+
+        header p {
+            color: #1e1e2a; 
+            font-size: 0.95rem; 
+            margin-top: 5px;
+            margin-bottom: 25px;
+        }
+
+        .quiz-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 500px;
+            padding: 25px;
+            margin-bottom: 20px; 
+        }
+
+        /* Ajustes para o cabeçalho do quiz (contador e barra) */
+        .quiz-header {
+            margin-bottom: 15px;
+        }
+        
+        .question-count {
+            color: #7b61ff;
+            font-weight: bold; 
+            font-size: 0.9rem;
+        }
+
+        .progress-bar {
+            background-color: #e6e6e6;
+            border-radius: 5px;
+            height: 6px;
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 15px; 
+        }
+
+        .progress {
+            background-color: #7b61ff;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        /* Título da Aula */
+        .lesson-title {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 600; 
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #eee;
+            pointer-events: none; 
+            position: relative;
+        }
+        
+        /* Estilos de acerto para a resposta correta */
+        label.correct {
+            background-color: #d4edda; 
+            border-color: #28a745; 
+            color: #155724; 
+            font-weight: bold;
+            display: flex; 
+            align-items: center;
+        }
+        
+        /* Simulação do Checkmark Verde e Rádio Desmarcado/Marcado */
+        input[type="radio"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            margin-right: 10px;
+            flex-shrink: 0;
+            position: relative;
+            top: 2px;
+        }
+
+        .correct-icon {
+            color: #1e8e3e; 
+            font-size: 1.2rem;
+            margin-right: 5px;
+            flex-shrink: 0;
+        }
+        
+        /* Oculta o radio button real na opção correta para usar o ícone */
+        label.correct input[type="radio"] {
+            display: none;
+        }
+
+        /* Estilo do botão de confirmar padrão (desabilitado) */
+        button {
+            width: 100%;
+            background-color: #7b61ff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 0;
+            font-size: 1rem;
+            cursor: default;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        /* Estilo do botão de navegação (ativo) */
+        .btn-navigation {
+            width: 100%;
+            padding: 12px 0;
+            margin-top: 25px;
+            background-color: #7b61ff; 
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-navigation:hover {
+            background-color: #5f48d4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Quiz de Informática e Ferramentas Google</h1>
+        <p>Teste seus conhecimentos sobre Informática básica e ferramentas do Google..</p>
+    </header>
+
+    <main>
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta11 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 44%;"></div> 
+                </div>
+            </div>
+            <div class="lesson-title">Aula 3: Google Docs e Sheets (Produtividade e Fórmulas)</div>
+            <h2>Google Docs – Criação de Documentos: Qual é o caminho correto para criar um novo documento no Google Docs a partir do Google Drive?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q11" disabled>[OPÇÃO A] -  Drive → “Upload de Arquivo” → “Novo Documento”
+                </label>
+                <label>
+                    <input type="radio" name="q11" disabled> [OPÇÃO B] - Drive → “Compartilhar” → “Novo” → “Documento de Texto”
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    [OPÇÃO C] - Drive → “Novo” → “Documentos Google”
+                </label>
+                <label>
+                    <input type="radio" name="q11" disabled> [OPÇÃO D] - Drive → “Ferramentas” → “Criar Documento”
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 1 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 48%;"></div>
+                </div>
+            </div>
+            <div class="lesson-title">Aula 3: Google Docs e Sheets (Produtividade e Fórmulas)</div>
+            <h2>Google Docs – Formatação de Texto: Durante a demonstração de formatação, quais foram alguns dos recursos aplicados ao documento “Relatório de Vendas – Outubro”?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q12" disabled> [OPÇÃO A] - Inserção de gráficos e tabelas dinâmicas
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    [OPÇÃO B] - Aplicação de negrito, itálico, alinhamento e imagem
+                </label>
+                <label>
+                    <input type="radio" name="q12" disabled> [OPÇÃO C] - Criação de planilhas e fórmulas automáticas
+                </label>
+                <label>
+                    <input type="radio" name="q12" disabled> [OPÇÃO D] - Configuração de permissões de edição avançadas
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+        
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 3 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 52%;"></div>
+                </div>
+            </div>
+            <div class="lesson-title">Aula 3: Google Docs e Sheets (Produtividade e Fórmulas)</div>
+            <h2>Google Sheets – Uso de Fórmulas: Na planilha “Controle de Gastos”, quais fórmulas foram usadas para calcular total e média dos valores?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q13" disabled> [OPÇÃO A] - =MÁXIMO(D2:D6) e =MÍNIMO(D2:D6)
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                   [OPÇÃO B] -  =SOMA(D2:D6) e =MÉDIA(D2:D6)
+                </label>
+                <label>
+                    <input type="radio" name="q13" disabled> [OPÇÃO C] - =PROCV(D2:D6) e =SOMA(A2:A6)
+                </label>
+                <label>
+                    <input type="radio" name="q13" disabled> [OPÇÃO D] - =CONT.SE(D2:D6) e =SE(D2>100;“Sim”;“Não”)
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 4 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 56%;"></div>
+                </div>
+            </div>
+            <div class="lesson-title">Aula 3: Google Docs e Sheets (Produtividade e Fórmulas)</div>
+            <h2>Google Drive – Colaboração e Compartilhamento: Qual é a principal vantagem de usar o botão “Compartilhar” nos documentos e planilhas do Google?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q14" disabled> [OPÇÃO A] - Permite enviar o arquivo por e-mail como anexo
+                </label>
+                <label>
+                    <input type="radio" name="q14" disabled> [OPÇÃO B] - Garante que o arquivo seja salvo no computador do usuário
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                   [OPÇÃO C] -  Permite colaboração em tempo real com diferentes níveis de permissão
+                </label>
+                <label>
+                    <input type="radio" name="q14" disabled> [OPÇÃO D] - Bloqueia o acesso de outros usuários à edição
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 5 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 60%;"></div>
+                </div>
+            </div>
+            <div class="lesson-title">Aula 3: Google Docs e Sheets (Produtividade e Fórmulas)</div>
+            <h2>Atividade Prática – Aplicação dos Conceitos: Qual é o objetivo da atividade prática proposta no final da vídeo-aula?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q15" disabled> [OPÇÃO A] - Criar um documento e uma planilha offline no computador
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                   [OPÇÃO B] -  Produzir um documento e uma planilha no Google, aplicando o que foi ensinado
+                </label>
+                <label>
+                    <input type="radio" name="q15" disabled> [OPÇÃO C] - Aprender a exportar arquivos em formato PDF
+                </label>
+                <label>
+                    <input type="radio" name="q15" disabled> [OPÇÃO D] - Inserir gráficos e comentários em planilhas avançadas
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+            <a href="aula4.html" class="btn-navigation">Ir para a Aula 4</a>
+        </section>
+
+    </main>
+</body>
+</html>
