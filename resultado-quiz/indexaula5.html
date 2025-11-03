@@ -1,1 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Informática - Aula 5</title>
+    <style>
+        /* CSS base replicado do seu código */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f6ff;
+            color: #1e1e2a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 30px;
+        }
 
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: #1f1f3b;
+        }
+
+        header p {
+            color: #1e1e2a; 
+            font-size: 0.95rem; 
+            margin-top: 5px;
+            margin-bottom: 25px;
+        }
+
+        .quiz-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 500px;
+            padding: 25px;
+            margin-bottom: 20px; 
+        }
+
+        /* Ajustes para o cabeçalho do quiz (contador e barra) */
+        .quiz-header {
+            margin-bottom: 15px;
+        }
+        
+        .question-count {
+            color: #7b61ff;
+            font-weight: bold; 
+            font-size: 0.9rem;
+        }
+
+        .progress-bar {
+            background-color: #e6e6e6;
+            border-radius: 5px;
+            height: 6px;
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 15px; 
+        }
+
+        .progress {
+            background-color: #7b61ff;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        /* Título da Aula */
+        .lesson-title {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 600; 
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #eee;
+            pointer-events: none; 
+            position: relative;
+        }
+        
+        /* Estilos de acerto para a resposta correta */
+        label.correct {
+            background-color: #d4edda; 
+            border-color: #28a745; 
+            color: #155724; 
+            font-weight: bold;
+            display: flex; 
+            align-items: center;
+        }
+        
+        /* Simulação do Checkmark Verde e Rádio Desmarcado/Marcado */
+        input[type="radio"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            margin-right: 10px;
+            flex-shrink: 0;
+            position: relative;
+            top: 2px;
+        }
+
+        .correct-icon {
+            color: #1e8e3e; 
+            font-size: 1.2rem;
+            margin-right: 5px;
+            flex-shrink: 0;
+        }
+        
+        /* Oculta o radio button real na opção correta para usar o ícone */
+        label.correct input[type="radio"] {
+            display: none;
+        }
+
+        /* Estilo do botão de confirmar padrão (desabilitado) */
+        button {
+            width: 100%;
+            background-color: #7b61ff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 0;
+            font-size: 1rem;
+            cursor: default;
+            margin-top: 20px;
+            display: none;
+        }
+
+        /* Estilo do botão de navegação (ativo) */
+        .btn-navigation {
+            width: 100%;
+            padding: 12px 0;
+            margin-top: 25px;
+            background-color: #FFC107; /* Amarelo/Laranja para Conclusão */
+            color: #1f1f3b;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-navigation:hover {
+            background-color: #e0ac00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Quiz de Informática e Ferramentas Google</h1>
+        <p>Teste seus conhecimentos sobre Informática básica e ferramentas do Google.</p>
+    </header>
+
+    <main>
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 1 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 84%;"></div>
+                </div>
+            </div>
+            <div class="lesson-title">Aula 5: Projeto Final e Revisão</div>
+            <h2>Qual é o principal objetivo da aula 'Projeto Final e Encerramento'?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q21" disabled> [OPÇÃO A] - Aprender a usar apenas o Google Docs.
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    [OPÇÃO B] - Consolidar aprendizados de todas as aulas anteriores, integrando conceitos de informática e ferramentas do Google.
+                </label>
+                <label>
+                    <input type="radio" name="q21" disabled>[OPÇÃO C] -  Realizar uma prova teórica sobre as ferramentas do Google.
+                </label>
+                <label>
+                    <input type="radio" name="q21" disabled> [OPÇÃO D] - Criar um projeto individual sem colaboração.
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 2 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 88%;"></div>
+                </div>
+            </div>
+            <div class="lesson-title">Aula 5: Projeto Final e Revisão</div>
+            <h2>Quais são as três ferramentas do Google que compõem a estrutura do Projeto Final?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q22" disabled> [OPÇÃO A] - Google Forms, Google Meet e Google Drive.
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    [OPÇÃO B] - Google Docs, Google Planilhas e Google Apresentações.
+                </label>
+                <label>
+                    <input type="radio" name="q22" disabled> [OPÇÃO C] - Google Agenda, Google Fotos e Google Maps.
+                </label>
+                <label>
+                    <input type="radio" name="q22" disabled> [OPÇÃO D] - Google Sites, Google Chat e Google Keep.
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+        
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 3 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 92%;"></div>
+                </div>
+            </div>
+            <div class="lesson-title">Aula 5: Projeto Final e Revisão</div>
+            <h2>No Componente 1 (Google Docs), qual é uma das dicas de colaboração mencionadas?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q23" disabled> [OPÇÃO A] - Usar apenas a função de 'Sugestões' para todas as alterações.
+                </label>
+                <label>
+                    <input type="radio" name="q23" disabled> [OPÇÃO B] - Manter o documento privado até a conclusão.
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    [OPÇÃO C] - Usar comentários para sugestões dos colegas.
+                </label>
+                <label>
+                    <input type="radio" name="q23" disabled> [OPÇÃO D] - Excluir o histórico de versões após cada edição.
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 4 de 25</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 96%;"></div>
+                </div>
+            </div>
+            <div class="lesson-title">Aula 5: Projeto Final e Revisão</div>
+            <h2>No Componente 2 (Google Planilhas), quais são duas funcionalidades a explorar que são mencionadas no texto?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q24" disabled> [OPÇÃO A] - Criação de gráficos avançados e programação em scripts.
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    [OPÇÃO B] - Inserção de dados e uso de fórmulas simples (como SUM e AVERAGE).
+                </label>
+                <label>
+                    <input type="radio" name="q24" disabled> [OPÇÃO C] - Conexão com bancos de dados externos e criação de dashboards.
+                </label>
+                <label>
+                    <input type="radio" name="q24" disabled> [OPÇÃO D] - Uso de filtros complexos e tabelas dinâmicas.
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+        </section>
+
+        <section class="quiz-card">
+            <div class="quiz-header">
+                <span class="question-count">Pergunta 5 de 5</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 100%;"></div>
+                </div>
+            </div>
+            <div class="lesson-title">Aula 5: Projeto Final e Revisão</div>
+            <h2>Qual é o tempo disponível (por grupo) para a Apresentação dos Trabalhos e demonstração das ferramentas utilizadas?</h2>
+            <form>
+                <label>
+                    <input type="radio" name="q25" disabled> [OPÇÃO A] - 1 a 3 minutos.
+                </label>
+                <label class="correct">
+                    <span class="correct-icon">✅</span>
+                    [OPÇÃO B] - 5 a 7 minutos.
+                </label>
+                <label>
+                    <input type="radio" name="q25" disabled> [OPÇÃO C] - 10 a 12 minutos.
+                </label>
+                <label>
+                    <input type="radio" name="q25" disabled> [OPÇÃO D] - Sem limite de tempo.
+                </label>
+            </form>
+            <button type="button" disabled>Confirmar</button>
+
+            <a href="resultado.html" class="btn-navigation">🎉 Concluir Quiz e Ver Resultado</a>
+        </section>
+
+    </main>
+</body>
+</html>
